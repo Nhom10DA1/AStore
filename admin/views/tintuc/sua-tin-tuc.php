@@ -96,7 +96,7 @@
                                                     </span>
                                                 </div>
                                                 <div class="text-end">
-                                                    <button type="submit" class="btn btn-primary">Thêm mới</button>
+                                                    <button type="submit" class="btn btn-primary">Sửa</button>
                                                 </div>
                                             </form>
                                         </div>
