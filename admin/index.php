@@ -8,10 +8,12 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
 require_once 'controllers/TinTucController.php';
+require_once 'controllers/AdminLienHeController.php';
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
 require_once 'models/TinTuc.php';
+require_once 'models/AdminLienHe.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -35,4 +37,10 @@ match ($act) {
     'form-sua-tin-tuc'      => (new TinTucController())->edit(),
     'sua-tin-tuc'          => (new TinTucController())->update(),
     'xoa-tin-tuc'           => (new TinTucController())->destroy(),
+    // Quản lý liên hệ
+    'lien-he' => (new AdminLienHeController())->index(),
+    'form-sua-lien-he'=> (new AdminLienHeController())->edit(),
+    'update-lien-he' => (new AdminLienHeController())->update(),
+
+
 };
