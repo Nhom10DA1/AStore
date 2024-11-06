@@ -68,8 +68,8 @@
                                     </div><!-- end card header -->
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=sua-tin-tuc&ma_bai_viet=<?=$tinTuc['ma_bai_viet']?>" method="POST">
-                                                <input type="hidden" name="ma_bai_viet" value="<?=$tinTuc['ma_bai_viet']?>">
+                                            <form action="?act=sua-tin-tuc&id=<?=$tinTuc['id']?>" method="POST">
+                                                <input type="hidden" name="id" value="<?=$tinTuc['id']?>">
                                                 <div class="mb-3">
                                                     <label for="employeeName" class="form-label">Tiêu đề bài viết</label>
                                                     <input type="text" class="form-control" name="tieu_de_bai_viet" value="<?=$tinTuc['tieu_de_bai_viet']?>">

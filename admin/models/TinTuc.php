@@ -38,12 +38,12 @@ class TinTuc
         }
     }
     // xoa bai viet
-    public function deleteData($ma_bai_viet)
+    public function deleteData($id)
     {
         try {
-            $sql = 'DELETE FROM tin_tucs WHERE ma_bai_viet = :ma_bai_viet';
+            $sql = 'DELETE FROM tin_tucs WHERE id = :id';
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':ma_bai_viet', $ma_bai_viet);
+            $stmt->bindParam(':id', $id);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -51,12 +51,12 @@ class TinTuc
         }
     }
     // Hien thong tin sua
-    public function getDetailData($ma_bai_viet)
+    public function getDetailData($id)
     {
         try {
-            $sql = 'SELECT * FROM tin_tucs WHERE ma_bai_viet = :ma_bai_viet';
+            $sql = 'SELECT * FROM tin_tucs WHERE id = :id';
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':ma_bai_viet', $ma_bai_viet);
+            $stmt->bindParam(':id', $id);
             $stmt->execute();
             return $stmt->fetch();
         } catch (PDOException $e) {
@@ -64,13 +64,13 @@ class TinTuc
         }
     }
     // xu ly update
-    public function updateData($ma_bai_viet, $tieu_de_bai_viet,  $noi_dung_bai_viet, $trang_thai_bai_viet)
+    public function updateData($id, $tieu_de_bai_viet,  $noi_dung_bai_viet, $trang_thai_bai_viet)
     {
         try {
-            $sql='UPDATE tin_tucs SET tieu_de_bai_viet=:tieu_de_bai_viet,noi_dung_bai_viet=:noi_dung_bai_viet,trang_thai_bai_viet=:trang_thai_bai_viet WHERE ma_bai_viet = :ma_bai_viet';
+            $sql='UPDATE tin_tucs SET tieu_de_bai_viet=:tieu_de_bai_viet,noi_dung_bai_viet=:noi_dung_bai_viet,trang_thai_bai_viet=:trang_thai_bai_viet WHERE id = :id';
 
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':ma_bai_viet', $ma_bai_viet);
+            $stmt->bindParam(':id', $id);
             $stmt->bindParam(':tieu_de_bai_viet', $tieu_de_bai_viet);
             $stmt->bindParam(':noi_dung_bai_viet', $noi_dung_bai_viet);
             $stmt->bindParam(':trang_thai_bai_viet', $trang_thai_bai_viet);

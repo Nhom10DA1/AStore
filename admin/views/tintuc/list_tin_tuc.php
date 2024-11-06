@@ -108,9 +108,9 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
-                                                                        <a href="?act=form-sua-tin-tuc&ma_bai_viet=<?= $tinTuc['ma_bai_viet'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
+                                                                        <a href="?act=form-sua-tin-tuc&id=<?= $tinTuc['id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
                                                                         <form action="?act=xoa-tin-tuc" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn xóa bài viết?')">
-                                                                            <input type="hidden" name="ma_bai_viet" value="<?= $tinTuc['ma_bai_viet'] ?>">
+                                                                            <input type="hidden" name="id" value="<?= $tinTuc['id'] ?>">
                                                                             <button type="submit" style="border:none; background:none; " class="link-danger fs-15"><i class="ri-delete-bin-line"></i></button>
                                                                         </form>
                                                                     </div>

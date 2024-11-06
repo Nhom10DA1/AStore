@@ -56,9 +56,9 @@ class TinTucController
     // hien thi form sua
     public function edit() {
         // lay id
-        $ma_bai_viet = $_GET['ma_bai_viet'];
+        $id = $_GET['id'];
         // lay thong tin chi tiet cua danh muc
-        $tinTuc = $this->modelTinTuc->getDetailData($ma_bai_viet);
+        $tinTuc = $this->modelTinTuc->getDetailData($id);
         // var_dump($tinTuc);
         // do  du lieu ra form
         require_once './views/tintuc/sua-tin-tuc.php';
@@ -66,7 +66,7 @@ class TinTucController
     // cap nhat du lieu vao CSDL
     public function update() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $ma_bai_viet = $_POST['ma_bai_viet'];
+            $id = $_POST['id'];
             $tieu_de_bai_viet = $_POST['tieu_de_bai_viet'];
             $noi_dung_bai_viet = $_POST['noi_dung_bai_viet'];
             $trang_thai_bai_viet = $_POST['trang_thai_bai_viet'];
@@ -84,7 +84,7 @@ class TinTucController
                 $errors['trang_thai_bai_viet'] = 'Vui lòng chọn trạng thái bài!';
             }
             if (empty($errors)) {
-                $this->modelTinTuc->updateData($ma_bai_viet,$tieu_de_bai_viet,  $noi_dung_bai_viet, $trang_thai_bai_viet);
+                $this->modelTinTuc->updateData($id,$tieu_de_bai_viet,  $noi_dung_bai_viet, $trang_thai_bai_viet);
                 unset($_SESSION['errors']);
                 header('Location:?act=tin-tucs');
             } else {
@@ -97,9 +97,9 @@ class TinTucController
     // xoa tin tuc khoi csdl
     public function destroy() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $ma_bai_viet = $_POST['ma_bai_viet'];
-            // var_dump($ma_bai_viet);
-            $this->modelTinTuc->deleteData($ma_bai_viet);
+            $id = $_POST['id'];
+            // var_dump($id);
+            $this->modelTinTuc->deleteData($id);
             header('Location:?act=tin-tucs');
             exit();
             

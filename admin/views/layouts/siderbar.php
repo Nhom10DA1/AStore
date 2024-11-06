@@ -75,14 +75,19 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
+                    <a class="nav-link menu-link" href="#sidebarLienHe" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
                         <i class="las la-file-alt"></i><span data-key="t-advance-ui">Quản lý tin tức</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarDanhMuc">
+                    <div class="collapse menu-dropdown" id="sidebarLienHe">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="?act=tin-tucs" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?act=form-them-tin-tuc" class="nav-link" data-key="t-sweet-alerts">
+                                    Thêm mới
                                 </a>
                             </li>
                         </ul>
