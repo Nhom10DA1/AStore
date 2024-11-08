@@ -69,10 +69,21 @@ class NguoiDung
     {
         $this->conn = null;
     }
-    public function updateData($id, $ten,  $email, $mat_khau, $so_dien_thoai, $dia_chi, $hinh_anh, $ngay_sinh, $gioi_tinh, $trang_thai, $vai_tro)
+    public function updateData($id, $ten, $email, $mat_khau, $so_dien_thoai, $dia_chi, $hinh_anh, $ngay_sinh, $gioi_tinh, $vai_tro, $trang_thai)
     {
         try {
-            $sql = 'UPDATE duAn1.nguoi_dungs SET  ten = :ten,email = :email, mat_khau = :mat__khau, so_dien_thoai = :so_dien_thoai, dia_chi = :dia_chi, hinh_anh = :hinh_anh, ngay_sinh = :ngay_sinh, gioi_tinh = :gioi_tinh, trang_thai = :trang_thai, vai_tro = :vai_tro WHERE id =:id';
+            $sql = "UPDATE nguoi_dungs SET 
+                    ten = :ten, 
+                    email = :email, 
+                    mat_khau = :mat_khau, 
+                    so_dien_thoai = :so_dien_thoai, 
+                    dia_chi = :dia_chi, 
+                    hinh_anh = :hinh_anh, 
+                    ngay_sinh = :ngay_sinh, 
+                    gioi_tinh = :gioi_tinh, 
+                    vai_tro = :vai_tro, 
+                    trang_thai = :trang_thai 
+                WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':ten', $ten);
