@@ -117,7 +117,25 @@
                         <i class="ri-mail-line"></i> <span data-key="t-contacts">Quản lý liên hệ</span>
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarKhuyenMai" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarKhuyenMai">
+                        <i class="las la-file-alt"></i><span data-key="t-advance-ui">Quản lý khuyến mãi</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarKhuyenMai">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="?act=khuyen-mai" class="nav-link" data-key="t-sweet-alerts">
+                                    Danh sách
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?act=form-them-khuyen-mai" class="nav-link" data-key="t-sweet-alerts">
+                                    Thêm mới
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
 
             </ul>

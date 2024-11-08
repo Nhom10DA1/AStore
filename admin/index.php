@@ -10,12 +10,14 @@ require_once 'controllers/DanhMucController.php';
 require_once 'controllers/TinTucController.php';
 require_once 'controllers/AdminLienHeController.php';
 require_once 'controllers/NguoiDungConntroller.php';
+require_once 'controllers/KhuyenMaiController.php';
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
 require_once 'models/TinTuc.php';
 require_once 'models/AdminLienHe.php';
 require_once 'models/NguoiDung.php';
+require_once 'models/KhuyenMai.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -50,5 +52,12 @@ match ($act) {
     'form-sua'              =>(new NguoiDungController())->edit(),
     'thay-doi-thong-tin'    =>(new NguoiDungController())->update(),
     'xoa-nguoi-dung'        =>(new NguoiDungController())->destroy(),
+    // Quản lý Khuyến mãi
+    'khuyen-mai'              => (new KhuyenMaiController())->index(),
+    'form-them-khuyen-mai'     => (new KhuyenMaiController())->create(),
+    'them-khuyen-mai'          => (new KhuyenMaiController())->store(),
+    'form-sua-khuyen-mai'      => (new KhuyenMaiController())->edit(),
+    'sua-khuyen-mai'          => (new KhuyenMaiController())->update(),
+    'xoa-khuyen-mai'           => (new KhuyenMaiController())->destroy(),
 
 };

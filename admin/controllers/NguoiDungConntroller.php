@@ -100,8 +100,8 @@ class NguoiDungController
             $vai_tro = $_POST['vai_tro'];
             $trang_thai = $_POST['trang_thai'];
             $target_dir = "./uploads/images/";
-            $hinh_anh = $target_dir . basename($_FILES["hinh_anh"]["name"]);
-            $errors = [];
+                $hinh_anh = $target_dir . basename($_FILES["hinh_anh"]["name"]);
+                $errors = [];
 
             if (empty($ten)) {
                 $errors['ten'] = 'Vui lòng nhập tên của người dùng!';
