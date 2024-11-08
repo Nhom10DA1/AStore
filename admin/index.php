@@ -9,11 +9,13 @@ require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
 require_once 'controllers/TinTucController.php';
 require_once 'controllers/AdminLienHeController.php';
+require_once 'controllers/NguoiDungConntroller.php';
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
 require_once 'models/TinTuc.php';
 require_once 'models/AdminLienHe.php';
+require_once 'models/NguoiDung.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -35,12 +37,18 @@ match ($act) {
     'form-them-tin-tuc'     => (new TinTucController())->create(),
     'them-tin-tuc'          => (new TinTucController())->store(),
     'form-sua-tin-tuc'      => (new TinTucController())->edit(),
-    'sua-tin-tuc'          => (new TinTucController())->update(),
+    'sua-tin-tuc'           => (new TinTucController())->update(),
     'xoa-tin-tuc'           => (new TinTucController())->destroy(),
     // Quản lý liên hệ
-    'lien-he' => (new AdminLienHeController())->index(),
-    'form-sua-lien-he'=> (new AdminLienHeController())->edit(),
-    'update-lien-he' => (new AdminLienHeController())->update(),
-
+    'lien-he'               => (new AdminLienHeController())->index(),
+    'form-sua-lien-he'      => (new AdminLienHeController())->edit(),
+    'update-lien-he'        => (new AdminLienHeController())->update(),
+    // Quản lý người dùng
+    'nguoi-dungs'           =>(new NguoiDungController())->index(),
+    'form-them-nguoi-dung'  =>(new NguoiDungController())->create(),
+    'them-nguoi-dung'       =>(new NguoiDungController())->store(),
+    'form-sua'              =>(new NguoiDungController())->edit(),
+    'thay-doi-thong-tin'    =>(new NguoiDungController())->update(),
+    'xoa-nguoi-dung'        =>(new NguoiDungController())->destroy(),
 
 };
