@@ -33,7 +33,7 @@ class NguoiDung
     public function postData($ten,  $email, $mat_khau, $so_dien_thoai, $dia_chi, $hinh_anh, $ngay_sinh, $gioi_tinh, $trang_thai, $vai_tro)
     {
         try {
-            $sql = 'INSERT INTO `nguoi_dungs` (ten,  email, mat_khau,so_dien_thoai, dia_chi, hinh_anh, ngay_sinh, gioi_tinh, trang_thai, vai_tro) 
+            $sql = 'INSERT INTO nguoi_dungs (ten,  email, mat_khau,so_dien_thoai, dia_chi, hinh_anh, ngay_sinh, gioi_tinh, trang_thai, vai_tro) 
                     VALUES (:ten,  :email, :mat_khau,:so_dien_thoai, :dia_chi, :hinh_anh, :ngay_sinh, :gioi_tinh, :trang_thai, :vai_tro);';
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':ten', $ten);
