@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
@@ -11,13 +11,17 @@ require_once 'controllers/TinTucController.php';
 require_once 'controllers/AdminLienHeController.php';
 require_once 'controllers/NguoiDungConntroller.php';
 require_once 'controllers/KhuyenMaiController.php';
+require_once 'controllers/BannerController.php';
+require_once 'controllers/SanPhamController.php';
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
+require_once 'models/SanPham.php';
 require_once 'models/TinTuc.php';
 require_once 'models/AdminLienHe.php';
 require_once 'models/NguoiDung.php';
 require_once 'models/KhuyenMai.php';
+require_once 'models/Banner.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -34,6 +38,13 @@ match ($act) {
     'form-sua-danh-muc'     => (new DanhMucController())->edit(),
     'sua-danh-muc'          => (new DanhMucController())->update(),
     'xoa-danh-muc'          => (new DanhMucController())->destroy(),
+     // quán lí sản phẩm
+     'san_phams'                => (new SanPhamcController())->index(),
+     'form-them-san-pham'    => (new SanPhamcController())->create(),
+     'them-san-pham'         => (new SanPhamcController())->store(),
+     'form-sua-san-pham'     => (new SanPhamcController())->edit(),
+     'sua-san-pham'          => (new SanPhamcController())->update(),
+     'xoa-san-pham'          => (new SanPhamcController())->destroy(),
     // Quản lý tin tức
     'tin-tucs'              => (new TinTucController())->index(),
     'form-them-tin-tuc'     => (new TinTucController())->create(),
@@ -46,12 +57,12 @@ match ($act) {
     'form-sua-lien-he'      => (new AdminLienHeController())->edit(),
     'update-lien-he'        => (new AdminLienHeController())->update(),
     // Quản lý người dùng
-    'nguoi-dungs'           =>(new NguoiDungController())->index(),
-    'form-them-nguoi-dung'  =>(new NguoiDungController())->create(),
-    'them-nguoi-dung'       =>(new NguoiDungController())->store(),
-    'form-sua'              =>(new NguoiDungController())->edit(),
-    'thay-doi-thong-tin'    =>(new NguoiDungController())->update(),
-    'xoa-nguoi-dung'        =>(new NguoiDungController())->destroy(),
+    'nguoi-dungs'           => (new NguoiDungController())->index(),
+    'form-them-nguoi-dung'  => (new NguoiDungController())->create(),
+    'them-nguoi-dung'       => (new NguoiDungController())->store(),
+    'form-sua'              => (new NguoiDungController())->edit(),
+    'thay-doi-thong-tin'    => (new NguoiDungController())->update(),
+    'xoa-nguoi-dung'        => (new NguoiDungController())->destroy(),
     // Quản lý Khuyến mãi
     'khuyen-mai'              => (new KhuyenMaiController())->index(),
     'form-them-khuyen-mai'     => (new KhuyenMaiController())->create(),
@@ -59,5 +70,11 @@ match ($act) {
     'form-sua-khuyen-mai'      => (new KhuyenMaiController())->edit(),
     'sua-khuyen-mai'          => (new KhuyenMaiController())->update(),
     'xoa-khuyen-mai'           => (new KhuyenMaiController())->destroy(),
-
+    // Quản lý banner
+    'banners'              => (new BannerController())->index(),
+    'form-them-banner'     => (new BannerController())->create(),
+    'them-banner'          => (new BannerController())->store(),
+    'form-sua-banner'      => (new BannerController())->edit(),
+    'sua-banner'          => (new BannerController())->update(),
+    'xoa-banner'           => (new BannerController())->destroy(),
 };
