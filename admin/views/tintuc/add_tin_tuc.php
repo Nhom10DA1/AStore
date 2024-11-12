@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+
 
     <!-- CSS -->
     <?php
@@ -78,7 +80,7 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="VertimeassageInput" class="form-label">Nội dung bài viết</label>
-                                                    <textarea class="form-control" name="noi_dung_bai_viet" rows="3" placeholder="Nội dung bài viết"></textarea>
+                                                    <textarea class="form-control" name="noi_dung_bai_viet" id="editor" rows="3" placeholder="Nội dung bài viết"></textarea>
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['noi_dung_bai_viet']) ? $_SESSION['errors']['noi_dung_bai_viet'] : ''  ?>
                                                     </span>
@@ -162,5 +164,11 @@
     ?>
 
 </body>
+<script>
+    ClassicEditor.create(document.querySelector('#editor')).catch(error => {
+        console.error(error);
+    });
+</script>
+
 
 </html>

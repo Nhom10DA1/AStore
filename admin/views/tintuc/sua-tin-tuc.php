@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 
     <!-- CSS -->
     <?php
@@ -68,18 +69,18 @@
                                     </div><!-- end card header -->
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=sua-tin-tuc&id=<?=$tinTuc['id']?>" method="POST">
-                                                <input type="hidden" name="id" value="<?=$tinTuc['id']?>">
+                                            <form action="?act=sua-tin-tuc&id=<?= $tinTuc['id'] ?>" method="POST">
+                                                <input type="hidden" name="id" value="<?= $tinTuc['id'] ?>">
                                                 <div class="mb-3">
                                                     <label for="employeeName" class="form-label">Tiêu đề bài viết</label>
-                                                    <input type="text" class="form-control" name="tieu_de_bai_viet" value="<?=$tinTuc['tieu_de_bai_viet']?>">
+                                                    <input type="text" class="form-control" name="tieu_de_bai_viet" value="<?= $tinTuc['tieu_de_bai_viet'] ?>">
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['tieu_de_bai_viet']) ? $_SESSION['errors']['tieu_de_bai_viet'] : ''  ?>
                                                     </span>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="VertimeassageInput" class="form-label">Nội dung bài viết</label>
-                                                    <textarea class="form-control" name="noi_dung_bai_viet" rows="3"><?=$tinTuc['noi_dung_bai_viet'] ?></textarea>
+                                                    <textarea class="form-control" name="noi_dung_bai_viet" id="editor" rows="3"><?= $tinTuc['noi_dung_bai_viet'] ?></textarea>
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['noi_dung_bai_viet']) ? $_SESSION['errors']['noi_dung_bai_viet'] : ''  ?>
                                                     </span>
@@ -88,8 +89,8 @@
                                                     <label for="VertimeassageInput" class="form-label">Trạng thái</label>
                                                     <select class="form-select" name="trang_thai_bai_viet">
                                                         <option selected disabled>-Chọn trạng thái-</option>
-                                                        <option value="1" <?= $tinTuc['trang_thai_bai_viet'] == 1 ? 'selected':''?>>Hiện</option>
-                                                        <option value="2" <?= $tinTuc['trang_thai_bai_viet'] == 2 ? 'selected':''?>>Ẩn</option>
+                                                        <option value="1" <?= $tinTuc['trang_thai_bai_viet'] == 1 ? 'selected' : '' ?>>Hiện</option>
+                                                        <option value="2" <?= $tinTuc['trang_thai_bai_viet'] == 2 ? 'selected' : '' ?>>Ẩn</option>
                                                     </select>
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['trang_thai_bai_viet']) ? $_SESSION['errors']['trang_thai_bai_viet'] : ''  ?>
@@ -163,5 +164,10 @@
     ?>
 
 </body>
+<script>
+    ClassicEditor.create(document.querySelector('#editor')).catch(error => {
+        console.error(error);
+    });
+</script>
 
 </html>

@@ -66,9 +66,14 @@
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Danh sách tin tức</h4>
-                                        <a href="?act=form-them-tin-tuc" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Thêm bài viết</a>
-                                    </div><!-- end card header -->
+                                        <form class="position-relative">
+                                            <input type="text" class="" placeholder="Search..." autocomplete="off" id="search-options" value="">
+                                            <span class="mdi mdi-magnify search-widget-icon"></span>
+                                            <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
+                                        </form>
 
+
+                                    </div><!-- end card header -->
                                     <div class="card-body">
                                         <div class="live-preview">
                                             <div class="table-responsive">
@@ -88,7 +93,7 @@
                                                         <?php foreach ($tinTucs as $index => $tinTuc): ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td><?= $tinTuc['tieu_de_bai_viet'] ?> </td>
+                                                                <td class="tieu_de_bai_viet"><?= $tinTuc['tieu_de_bai_viet'] ?> </td>
                                                                 <td><?= (strlen($tinTuc['noi_dung_bai_viet']) > 50) ? substr($tinTuc['noi_dung_bai_viet'], 0, 50) . "..." : $tinTuc['noi_dung_bai_viet']; ?> </td>
                                                                 <td><?= $tinTuc['ngay_dang_bai'] ?> </td>
                                                                 <td><?= $tinTuc['luot_xem'] ?> </td>
@@ -184,5 +189,48 @@
     ?>
 
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById("search-options");
+        const searchIcon = document.querySelector(".mdi-magnify.search-widget-icon");
+        const closeIcon = document.getElementById("search-close-options");
+        const rows = document.querySelectorAll("tbody tr");
+
+        // Khi nhấn vào biểu tượng kính lúp để thực hiện tìm kiếm
+        searchIcon.addEventListener("click", function() {
+            const query = searchInput.value.toLowerCase().trim(); // Lấy giá trị nhập vào trong ô tìm kiếm
+            if (query === "") {
+                return; // Nếu ô tìm kiếm trống, không làm gì cả
+            }
+
+            rows.forEach(row => {
+                const title = row.querySelector(".tieu_de_bai_viet").innerText.toLowerCase(); // Lấy tiêu đề bài viết
+
+                // Kiểm tra nếu tìm kiếm tương đối (tiêu đề chứa phần từ khóa) hoặc tìm kiếm tuyệt đối (tiêu đề chính xác với từ khóa)
+                if (title.includes(query)) { // Tìm kiếm tương đối
+                    row.style.display = ""; // Hiển thị bài viết nếu tiêu đề chứa từ khóa
+                } else {
+                    row.style.display = "none"; // Ẩn bài viết nếu tiêu đề không chứa từ khóa
+                }
+            });
+
+            // Hiển thị biểu tượng đóng khi có kết quả tìm kiếm
+            closeIcon.classList.remove("d-none");
+        });
+
+        // Khi nhấn vào biểu tượng đóng
+        closeIcon.addEventListener("click", function() {
+            rows.forEach(row => {
+                row.style.display = ""; // Hiển thị tất cả bài viết
+            });
+
+            // Ẩn biểu tượng đóng
+            closeIcon.classList.add("d-none");
+
+            // Xóa giá trị trong ô tìm kiếm
+            searchInput.value = "";
+        });
+    });
+</script>
 
 </html>

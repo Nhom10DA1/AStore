@@ -66,8 +66,13 @@
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Danh sách người dùng</h4>
-                                        <a href="?act=form-them-nguoi-dung" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Thêm người dùng</a>
-                                    </div><!-- end card header -->
+                                        <form class="position-relative">
+                                            <input type="text" id="search-options" placeholder="Tìm kiếm người dùng..." autocomplete="off" class="">
+                                            <span class="mdi mdi-magnify search-widget-icon"></span>
+                                            <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
+                                        </form>
+                                    </div>
+
 
                                     <div class="card-body">
                                         <div class="live-preview">
@@ -211,5 +216,49 @@
     ?>
 
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById("search-options");
+        const searchIcon = document.querySelector(".mdi-magnify.search-widget-icon");
+        const closeIcon = document.getElementById("search-close-options");
+        const rows = document.querySelectorAll("tbody tr");
+
+        // Khi nhấn vào biểu tượng kính lúp để thực hiện tìm kiếm
+        searchIcon.addEventListener("click", function() {
+            const query = searchInput.value.toLowerCase().trim(); // Lấy giá trị nhập vào trong ô tìm kiếm
+            if (query === "") {
+                return; // Nếu ô tìm kiếm trống, không làm gì cả
+            }
+
+            rows.forEach(row => {
+                const name = row.querySelector("td:nth-child(2)").innerText.toLowerCase(); // Lấy tên người dùng từ cột thứ 2
+                const email = row.querySelector("td:nth-child(3)").innerText.toLowerCase(); // Lấy email người dùng từ cột thứ 3
+
+                // Kiểm tra nếu tìm kiếm có chứa từ khóa trong tên hoặc email
+                if (name.includes(query) || email.includes(query)) {
+                    row.style.display = ""; // Hiển thị người dùng nếu tên hoặc email chứa từ khóa
+                } else {
+                    row.style.display = "none"; // Ẩn người dùng nếu không khớp với từ khóa
+                }
+            });
+
+            // Hiển thị biểu tượng đóng khi có kết quả tìm kiếm
+            closeIcon.classList.remove("d-none");
+        });
+
+        // Khi nhấn vào biểu tượng đóng
+        closeIcon.addEventListener("click", function() {
+            rows.forEach(row => {
+                row.style.display = ""; // Hiển thị tất cả người dùng
+            });
+
+            // Ẩn biểu tượng đóng
+            closeIcon.classList.add("d-none");
+
+            // Xóa giá trị trong ô tìm kiếm
+            searchInput.value = "";
+        });
+    });
+</script>
 
 </html>

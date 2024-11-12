@@ -108,6 +108,7 @@
                                                 <div class="mb-3">
                                                     <label for="employeeName" class="form-label">Avatar</label>
                                                     <input class="form-control" type="file" id="formFileDisabled" name="hinh_anh" value="<?=$nguoiDung['hinh_anh']?>">
+                                                    <input type="hidden" name="hinh_anh_cu" value="<?= $nguoiDung['hinh_anh']; ?>">
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['hinh_anh']) ? $_SESSION['errors']['hinh_anh'] : ''  ?>
                                                     </span>
