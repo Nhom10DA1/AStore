@@ -7,14 +7,14 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Danh sách người dùng | AStore</title>
+    <title>Danh Sách đơn hàng | A Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
     <!-- CSS -->
     <?php
-    require_once "views/layouts/libs_css.php";
+    require_once  "views/layouts/libs_css.php";
     ?>
 
 </head>
@@ -39,19 +39,18 @@
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
                 <div class="container-fluid">
                     <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lý người dùng</h4>
+                                <h4 class="mb-sm-0">Quản lý danh sách đơn hàng</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Danh sách người dùng</li>
+                                        <li class="breadcrumb-item active">Danh sách đơn hàng</li>
                                     </ol>
                                 </div>
 
@@ -61,90 +60,73 @@
                     <!-- end page title -->
                     <div class="row">
                         <div class="col">
-
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách người dùng</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách danh sách đơn hàng</h4>
                                         <form class="position-relative">
-                                            <input type="text" id="search-options" placeholder="Tìm kiếm người dùng..." autocomplete="off" class="">
+                                            <input type="text" id="search-options" placeholder="Tìm kiếm đơn hàng..." autocomplete="off" class="">
                                             <span class="mdi mdi-magnify search-widget-icon"></span>
                                             <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
                                         </form>
-                                    </div>
-
-
+                                    </div><!-- end card header -->
                                     <div class="card-body">
                                         <div class="live-preview">
                                             <div class="table-responsive">
-                                                <table class="table table-striped table-nowrap align-middle mb-0">
+                                                <table class="table table-striped table-nowrap align-middle mb-0" style="width: 1000px;">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">STT</th>
-                                                            <th scope="col">Tên</th>
-                                                            <th scope="col">Email</th>
-                                                            <th scope="col">Số điện thoại</th>
-                                                            <th scope="col">Địa chỉ</th>
-                                                            <th scope="col">Avatar</th>
-                                                            <th scope="col">Ngày sinh</th>
-                                                            <th scope="col">Giới tính</th>
-                                                            <th scope="col">Vai trò</th>
+                                                            <th scope="col">Tài khoản</th>
+                                                            <th scope="col">Mã đơn hàng</th>
+                                                            <th scope="col">Tên người nhận</th>
+                                                            <th scope="col">Email người nhận</th>
+                                                            <th scope="col">Số điện thoại người nhận</th>
+                                                            <th scope="col">Địa chỉ người nhận</th>
+                                                            <th scope="col">Ngày đặt</th>
+                                                            <th scope="col">Mã khuyến mãi</th>
+                                                            <th scope="col">Phương thức thanh toán</th>
+                                                            <th scope="col">Trạng thái thanh toán</th>
+                                                            <th scope="col">Thanh toán</th>
                                                             <th scope="col">Trạng thái</th>
+                                                            <th>Hành động</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($nguoiDungs as $index => $nguoiDung): ?>
+                                                        <?php foreach ($donHangs as $index => $donHang) : ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td><?= $nguoiDung['ten'] ?> </td>
-                                                                <td><?= $nguoiDung['email'] ?></td>
-                                                                <td><?= $nguoiDung['so_dien_thoai'] ?> </td>
-                                                                <td><?= $nguoiDung['dia_chi'] ?> </td>
-                                                                <td><img style="height: 70px; width:70px;border-radius:35px " src="<?= $nguoiDung['hinh_anh'] ?>" alt="" srcset=""></td>
-                                                                <td><?= $nguoiDung['ngay_sinh'] ?> </td>
+                                                                <td class="fw-medium"><?= $donHang['ten'] ?></td>
+                                                                <td class="fw-medium"><?= $donHang['ma_don_hang'] ?></td>
+                                                                <td class="fw-medium"><?= $donHang['ten_nguoi_nhan'] ?></td>
+                                                                <td class="fw-medium"><?= $donHang['email_nguoi_nhan'] ?></td>
+                                                                <td class="fw-medium">0<?= $donHang['sdt_nguoi_nhan'] ?></td>
+                                                                <td class="fw-medium"><?= $donHang['dia_chi_nguoi_nhan'] ?></td>
+                                                                <td class="fw-medium"><?= $donHang['ngay_dat'] ?></td>
+                                                                <td class="fw-medium"><?= $donHang['ma_khuyen_mai'] ?></td>
+                                                                <td class="fw-medium"><?= $donHang['ten_phuong_thuc'] ?></td>
                                                                 <td>
                                                                     <?php
-                                                                    if ($nguoiDung['gioi_tinh'] == 1) { ?>
-                                                                        <span>Nam</span>
+                                                                    if ($donHang['trang_thai_thanh_toan'] == 1) { ?>
+                                                                        <span class="badge bg-success">Đã thanh toán</span>
                                                                     <?php
                                                                     } else { ?>
-                                                                        <span>Nữ</span>
+                                                                        <span class="badge bg-danger">Chưa thanh toán</span>
                                                                     <?php
                                                                     }
                                                                     ?>
                                                                 </td>
-                                                                <td>
-                                                                    <?php
-                                                                    if ($nguoiDung['vai_tro'] == 1) { ?>
-                                                                        <span>Admin</span>
-                                                                    <?php
-                                                                    } else { ?>
-                                                                        <span>User</span>
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-                                                                </td>
-
-                                                                <td>
-                                                                    <?php
-                                                                    if ($nguoiDung['trang_thai'] == 1) { ?>
-                                                                        <span class="badge bg-success">Hoạt động</span>
-                                                                    <?php
-                                                                    } else { ?>
-                                                                        <span class="badge bg-danger">Ngưng hoạt động</span>
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-                                                                </td>
+                                                                <td class="fw-medium"><?= $donHang['thanh_toan'] ?><u>đ</u></td>
+                                                                <td class="fw-medium"><?= $donHang['ten_trang_thai'] ?></td>
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
-                                                                        <a href="?act=form-sua&id=<?= $nguoiDung['id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
-                                                                        <form action="?act=xoa-nguoi-dung" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn xóa bài viết?')">
-                                                                            <input type="hidden" name="id" value="<?= $nguoiDung['id'] ?>">
-                                                                            <button type="submit" style="border:none; background:none; " class="link-danger fs-15"><i class="ri-delete-bin-line"></i></button>
-                                                                        </form>
+
+                                                                        <a href="?act=don-hangs&id=<?= $donHang['ma_don_hang'] ?>" class="link-success fs-15"><i class="bx bx-clipboard"></i></a>
+                                                                        <a href="?act=form-sua-don-hang&id=<?= $donHang['id'] ?>" class="link-warning"><i class="ri-settings-4-line"></i></a>
+
                                                                     </div>
                                                                 </td>
+
                                                             </tr>
                                                         <?php endforeach; ?>
                                                     </tbody>
@@ -154,15 +136,12 @@
                                     </div><!-- end card-body -->
                                 </div><!-- end card -->
                             </div> <!-- end .h-100-->
-
                         </div> <!-- end col -->
                     </div>
-
                 </div>
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -223,20 +202,20 @@
 
         // Khi nhấn vào biểu tượng kính lúp để thực hiện tìm kiếm
         searchIcon.addEventListener("click", function() {
-            const query = searchInput.value.toLowerCase().trim(); // Lấy giá trị nhập vào trong ô tìm kiếm
+            const query = searchInput.value.toLowerCase().trim();
             if (query === "") {
-                return; // Nếu ô tìm kiếm trống, không làm gì cả
+                return;
             }
 
             rows.forEach(row => {
-                const name = row.querySelector("td:nth-child(2)").innerText.toLowerCase(); // Lấy tên người dùng từ cột thứ 2
-                const email = row.querySelector("td:nth-child(3)").innerText.toLowerCase(); // Lấy email người dùng từ cột thứ 3
+                const account = row.querySelector("td:nth-child(2)").innerText.toLowerCase(); // Lấy tài khoản từ cột thứ 2
+                const orderId = row.querySelector("td:nth-child(3)").innerText.toLowerCase(); // Lấy mã đơn hàng từ cột thứ 3
 
-                // Kiểm tra nếu tìm kiếm có chứa từ khóa trong tên hoặc email
-                if (name.includes(query) || email.includes(query)) {
-                    row.style.display = ""; // Hiển thị người dùng nếu tên hoặc email chứa từ khóa
+                // Kiểm tra nếu tìm kiếm có chứa từ khóa trong tài khoản hoặc mã đơn hàng
+                if (account.includes(query) || orderId.includes(query)) {
+                    row.style.display = ""; // Hiển thị dòng nếu tài khoản hoặc mã đơn hàng chứa từ khóa
                 } else {
-                    row.style.display = "none"; // Ẩn người dùng nếu không khớp với từ khóa
+                    row.style.display = "none"; // Ẩn dòng nếu không khớp
                 }
             });
 
@@ -247,16 +226,14 @@
         // Khi nhấn vào biểu tượng đóng
         closeIcon.addEventListener("click", function() {
             rows.forEach(row => {
-                row.style.display = ""; // Hiển thị tất cả người dùng
+                row.style.display = ""; // Hiển thị tất cả các dòng
             });
 
-            // Ẩn biểu tượng đóng
-            closeIcon.classList.add("d-none");
-
-            // Xóa giá trị trong ô tìm kiếm
-            searchInput.value = "";
+            closeIcon.classList.add("d-none"); // Ẩn biểu tượng đóng
+            searchInput.value = ""; // Xóa giá trị trong ô tìm kiếm
         });
     });
 </script>
+
 
 </html>

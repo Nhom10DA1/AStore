@@ -13,6 +13,7 @@ require_once 'controllers/NguoiDungConntroller.php';
 require_once 'controllers/KhuyenMaiController.php';
 require_once 'controllers/BannerController.php';
 require_once 'controllers/SanPhamController.php';
+require_once 'controllers/DonHangController.php';
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
@@ -22,6 +23,7 @@ require_once 'models/AdminLienHe.php';
 require_once 'models/NguoiDung.php';
 require_once 'models/KhuyenMai.php';
 require_once 'models/Banner.php';
+require_once 'models/DonHangs.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -38,13 +40,13 @@ match ($act) {
     'form-sua-danh-muc'     => (new DanhMucController())->edit(),
     'sua-danh-muc'          => (new DanhMucController())->update(),
     'xoa-danh-muc'          => (new DanhMucController())->destroy(),
-     // quán lí sản phẩm
-     'san_phams'                => (new SanPhamcController())->index(),
-     'form-them-san-pham'    => (new SanPhamcController())->create(),
-     'them-san-pham'         => (new SanPhamcController())->store(),
-     'form-sua-san-pham'     => (new SanPhamcController())->edit(),
-     'sua-san-pham'          => (new SanPhamcController())->update(),
-     'xoa-san-pham'          => (new SanPhamcController())->destroy(),
+    // quán lí sản phẩm
+    'san_phams'                => (new SanPhamcController())->index(),
+    'form-them-san-pham'    => (new SanPhamcController())->create(),
+    'them-san-pham'         => (new SanPhamcController())->store(),
+    'form-sua-san-pham'     => (new SanPhamcController())->edit(),
+    'sua-san-pham'          => (new SanPhamcController())->update(),
+    'xoa-san-pham'          => (new SanPhamcController())->destroy(),
     // Quản lý tin tức
     'tin-tucs'              => (new TinTucController())->index(),
     'form-them-tin-tuc'     => (new TinTucController())->create(),
@@ -77,4 +79,9 @@ match ($act) {
     'form-sua-banner'      => (new BannerController())->edit(),
     'sua-banner'          => (new BannerController())->update(),
     'xoa-banner'           => (new BannerController())->destroy(),
+    // quán lí đơn hàng
+    'don-hangs'                => (new DonHangController())->index(),
+    // 'form-sua-don-hang'     => (new DonHangController())->edit(),
+    // 'sua-don-hang'          => (new DonHangController())->update(),
+    // 'xoa-don-hang'          => (new DonHangController())->destroy(),
 };
