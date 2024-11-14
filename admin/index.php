@@ -40,13 +40,7 @@ match ($act) {
     'form-sua-danh-muc'     => (new DanhMucController())->edit(),
     'sua-danh-muc'          => (new DanhMucController())->update(),
     'xoa-danh-muc'          => (new DanhMucController())->destroy(),
-    // quán lí sản phẩm
-    'san_phams'                => (new SanPhamcController())->index(),
-    'form-them-san-pham'    => (new SanPhamcController())->create(),
-    'them-san-pham'         => (new SanPhamcController())->store(),
-    'form-sua-san-pham'     => (new SanPhamcController())->edit(),
-    'sua-san-pham'          => (new SanPhamcController())->update(),
-    'xoa-san-pham'          => (new SanPhamcController())->destroy(),
+
     // Quản lý tin tức
     'tin-tucs'              => (new TinTucController())->index(),
     'form-them-tin-tuc'     => (new TinTucController())->create(),
@@ -58,6 +52,7 @@ match ($act) {
     'lien-he'               => (new AdminLienHeController())->index(),
     'form-sua-lien-he'      => (new AdminLienHeController())->edit(),
     'update-lien-he'        => (new AdminLienHeController())->update(),
+    'xoa-lien-he'           => (new AdminLienHeController())->delete(),
     // Quản lý người dùng
     'nguoi-dungs'           => (new NguoiDungController())->index(),
     'form-them-nguoi-dung'  => (new NguoiDungController())->create(),
@@ -80,8 +75,15 @@ match ($act) {
     'sua-banner'          => (new BannerController())->update(),
     'xoa-banner'           => (new BannerController())->destroy(),
     // quán lí đơn hàng
-    'don-hangs'                => (new DonHangController())->index(),
-    // 'form-sua-don-hang'     => (new DonHangController())->edit(),
-    // 'sua-don-hang'          => (new DonHangController())->update(),
-    // 'xoa-don-hang'          => (new DonHangController())->destroy(),
+    'don-hangs'                 => (new DonHangController())->index(),
+    'form-sua-don-hang'         => (new DonHangController())->edit(),
+    'sua-don-hang'              => (new DonHangController())->update(),
+    'xoa-don-hang'              => (new DonHangController())->destroy(),
+    // Quản lý sản phẩm
+    'san_phams'             => (new SanPhamController())->listSanPham(),
+    'form-them-san-pham'    => (new SanPhamController())->formAddSanPham(),
+    'them-san-pham'         => (new SanPhamController())->postAddSanPham(),
+    'form-sua-san-pham'     => (new SanPhamController())->formEditSanPham(),
+    'sua-san-pham'          => (new SanPhamController())->postEditSanPham(),
+    'xoa-san-pham'          => (new SanPhamController())->deleteSanPham(),
 };

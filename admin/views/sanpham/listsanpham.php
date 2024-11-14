@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Quản lý liên hệ</title>
+    <title>Quan Li San Pham| NN Shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -45,12 +45,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lý liên hệ</h4>
+                                <h4 class="mb-sm-0">quan li san pham</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Quản lý liên hệ</li>
+                                        <li class="breadcrumb-item active">Tai khoan quan tri</li>
                                     </ol>
                                 </div>
 
@@ -62,140 +62,163 @@
                         <div class="col">
 
                             <div class="h-100">
-                                <!-- Tables Without Borders -->
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách liên hệ</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Danh sach san pham </h4>
+                                        <!-- <a href="?act=form-them-san-pham" class="btn btn-soft-success material-shadow-none">
+                                                <i class="ri-add-circle-line align-middle me-1"></i> Them san pham </button>
+                                        </a> -->
                                         <form class="pri-add-circle-line align-middle me-1">
-                                            <input type="text" id="search-options" placeholder="Tìm kiếm liên hệ..." onkeyup="searchProducts()" autocomplete="off" class="">
+                                            <input type="text" id="search-options" placeholder="Tìm kiếm sản phẩm..." onkeyup="searchProducts()" autocomplete="off" class="">
                                             <span class="mdi mdi-magnify search-widget-icon"></span>
                                             <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
                                         </form>
+
+
+
+
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
                                         <div class="live-preview">
                                             <div class="table-responsive">
-                                                <table class="table table-border align-middle table-nowrap mb-0">
+                                                <table class="table table-striped table-nowrap align-middle mb-0">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">ID</th>
-                                                            <th scope="col">Tên khách hàng</th>
-                                                            <th scope="col">Email</th>
-                                                            <th scope="col">Nội dung</th>
+                                                            <th scope="col">STT</th>
+                                                            <th scope="col">Ma SP </th>
+                                                            <th scope="col">Tên sản phẩm </th>
+                                                            <th scope="col">Ảnh sản phẩm</th>
+
+                                                            <th scope="col">Giá tiền</th>
+                                                            <th scope="col">Giá khuyến mãi</th>
+                                                            <th scope="col">Ngày nhập</th>
+                                                            <th scope="col">Số lượng</th>
+
+                                                            <th scope="col">Mô tả</th>
+
+                                                            <th scope="col">Danh mục</th>
                                                             <th scope="col">Trạng thái</th>
-                                                            <th scope="col"></th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($lienHes as $index => $lienHe): ?>
+                                                        <?php
+                                                        foreach ($listSanPham as $index => $sanPham) :
+                                                        ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td><?= $lienHe['ten'] ?></td>
-                                                                <td><?= $lienHe['email'] ?></td>
+                                                                <td><?= $sanPham['ma_san_pham'] ?></td>
+                                                                <td><?= $sanPham['ten_san_pham'] ?></td>
+
                                                                 <td>
-                                                                    <?= strlen($lienHe['loi_nhan']) > 30 ? substr($lienHe['loi_nhan'], 0, 30) . '...' : $lienHe['loi_nhan'] ?>
+                                                                    <img src="<?= BASE_URL .  $sanPham['anh_san_pham'] ?>" style="width: 100px" alt=""
+                                                                        onerror="this.onerror=null; this.src='https:img.pikbest.com/wp/202345/cat-dog-pet-and-pets-in-real-pictures-wallpapers_9596134.jpg!w700wp'">
                                                                 </td>
+                                                                <td><?= $sanPham['gia_ban'] ?></td>
+                                                                <td><?= $sanPham['gia_khuyen_mai'] ?></td>
+                                                                <td><?= $sanPham['ngay_nhap'] ?></td>
+                                                                <td><?= $sanPham['so_luong'] ?></td>
+
+                                                                <td><?= $sanPham['mo_ta'] ?></td>
+                                                                <td><?= $sanPham['ten_danh_muc'] ?></td>
 
                                                                 <td>
                                                                     <?php
-                                                                    if ($lienHe['trang_thai'] == 0) {
+                                                                    if ($sanPham['trang_thai'] == 1) {
                                                                     ?>
-                                                                        <span class="badge bg-danger-subtle text-danger">Chưa xác nhận</span>
-                                                                    <?php
-                                                                    } elseif ($lienHe['trang_thai'] == 1) {
-                                                                    ?>
-                                                                        <span class="badge bg-primary-subtle text-primary">Đã xác nhận</span>
+                                                                        <span class="badge bg-success">Con Ban</span>
                                                                     <?php
                                                                     } else {
                                                                     ?>
-                                                                        <span class="badge bg-success-subtle text-success">Đã hoàn thành</span>
+                                                                        <span class="badge bg-danger">Dung Ban </span>
+
                                                                     <?php
                                                                     }
                                                                     ?>
+
                                                                 </td>
                                                                 <td>
-                                                                    <?php if ($lienHe['trang_thai'] == 2): // Nếu trạng thái là "Đã hoàn thành" 
-                                                                    ?>
-                                                                        <a href="?act=xoa-lien-he&id_lien_he=<?= $lienHe['id'] ?>" class="link-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa liên hệ này?');">
-                                                                            <i class="ri-delete-bin-line"></i> Xóa
-                                                                        </a>
-                                                                    <?php else: // Các trạng thái khác sẽ hiện nút sửa 
-                                                                    ?>
-                                                                        <a href="?act=form-sua-lien-he&id_lien_he=<?= $lienHe['id'] ?>" class="link-warning">
-                                                                            <i class="ri-settings-4-line"></i> Sửa
-                                                                        </a>
-                                                                    <?php endif; ?>
+                                                                    <div class="hstack gap-3 flex-wrap">
+                                                                        <a href="?act=form-sua-san-pham&id_san_pham=<?= $sanPham['id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
+                                                                        <form action="?act=xoa-san-pham&id_san_pham=<?= $sanPham['id'] ?>" method="POST" onsubmit="return confirm('ban co dong y xoa khong')">
+                                                                            <input type="hidden" name="quan_tri_id" value="<?= $sanPham['id'] ?>">
+
+                                                                            <button type="submit" class="link-danger fs-15" style="border: none; background: none;"><i class="ri-delete-bin-line"></i></button>
+                                                                        </form>
+                                                                        <!-- <a href="javascript:void(0);" class="link-danger fs-15"><i class="ri-delete-bin-line"></i></a> -->
+                                                                    </div>
                                                                 </td>
                                                             </tr>
-                                                        <?php endforeach ?>
+
+                                                        <?php endforeach;  ?>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
+
                                     </div><!-- end card-body -->
-                                </div>
-                            </div> <!-- end .h-100-->
-
-                        </div> <!-- end col -->
-                    </div>
-
-                </div>
-                <!-- container-fluid -->
-            </div>
-            <!-- End Page-content -->
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © Velzon.
+                                </div><!-- end card -->
+                            </div> <!-- end col -->
                         </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
+
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> © Velzon.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by Themesbrand
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
+            <!-- end main content-->
+
         </div>
-        <!-- end main content-->
-
-    </div>
-    <!-- END layout-wrapper -->
+        <!-- END layout-wrapper -->
 
 
 
-    <!--start back-to-top-->
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <!--end back-to-top-->
+        <!--start back-to-top-->
+        <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+            <i class="ri-arrow-up-line"></i>
+        </button>
+        <!--end back-to-top-->
 
-    <!--preloader-->
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner-border text-primary avatar-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
+        <!--preloader-->
+        <div id="preloader">
+            <div id="status">
+                <div class="spinner-border text-primary avatar-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="customizer-setting d-none d-md-block">
-        <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        <div class="customizer-setting d-none d-md-block">
+            <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+                <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+            </div>
         </div>
-    </div>
 
-    <!-- JAVASCRIPT -->
-    <?php
-    require_once "views/layouts/libs_js.php";
-    ?>
+        <!-- JAVASCRIPT -->
+        <?php
+        require_once "views/layouts/libs_js.php";
+        ?>
 
 </body>
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const searchInput = document.getElementById("search-options");

@@ -36,5 +36,11 @@ class AdminLienHeController {
             }
         }
     }
+    public function delete() {
+        $id = $_GET['id_lien_he'];
+        $this->modelLienHe->deleteLienHe($id);
+        header('Location: ?act=lien-he');
+        exit();
+    }
     
 }

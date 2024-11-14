@@ -10,7 +10,7 @@
         }
         public function index(){
             // lay ra du lieu danh muc
-            $danhMucs = $this->modelDanhMuc->getAll();
+            $danhMucs = $this->modelDanhMuc->getAllDanhMuc();
             // var_dump($danhMucs);
 
             // Dua du lieu ra view

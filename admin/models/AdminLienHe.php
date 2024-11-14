@@ -37,6 +37,16 @@ class AdminLienHe
             echo 'Lỗi: ' . $e->getMessage();
         }
     }
+    public function deleteLienHe($id) {
+        try {
+            $sql = "DELETE FROM lien_hes WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            echo 'Lỗi: ' . $e->getMessage();
+        }
+    }
     
 }
 ?>

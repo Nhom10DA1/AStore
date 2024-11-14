@@ -77,18 +77,19 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">STT</th>
-                                                            <th scope="col">Tài khoản</th>
+                                                            <!-- <th scope="col">Tài khoản</th> -->
                                                             <th scope="col">Mã đơn hàng</th>
                                                             <th scope="col">Tên người nhận</th>
-                                                            <th scope="col">Email người nhận</th>
-                                                            <th scope="col">Số điện thoại người nhận</th>
+                                                            <!-- <th scope="col">Email người nhận</th>
+                                                            <th scope="col">Số điện thoại người nhận</th> -->
                                                             <th scope="col">Địa chỉ người nhận</th>
                                                             <th scope="col">Ngày đặt</th>
-                                                            <th scope="col">Mã khuyến mãi</th>
+                                                            <!-- <th scope="col">Mã khuyến mãi</th> -->
                                                             <th scope="col">Phương thức thanh toán</th>
                                                             <th scope="col">Trạng thái thanh toán</th>
                                                             <th scope="col">Thanh toán</th>
                                                             <th scope="col">Trạng thái</th>
+                                                            <!-- <th>Ghi chú</th> -->
                                                             <th>Hành động</th>
                                                         </tr>
                                                     </thead>
@@ -96,14 +97,14 @@
                                                         <?php foreach ($donHangs as $index => $donHang) : ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td class="fw-medium"><?= $donHang['ten'] ?></td>
+                                                                <!-- <td class="fw-medium"><?= $donHang['ten'] ?></td> -->
                                                                 <td class="fw-medium"><?= $donHang['ma_don_hang'] ?></td>
                                                                 <td class="fw-medium"><?= $donHang['ten_nguoi_nhan'] ?></td>
-                                                                <td class="fw-medium"><?= $donHang['email_nguoi_nhan'] ?></td>
-                                                                <td class="fw-medium">0<?= $donHang['sdt_nguoi_nhan'] ?></td>
+                                                                <!-- <td class="fw-medium"><?= $donHang['email_nguoi_nhan'] ?></td>
+                                                                <td class="fw-medium">0<?= $donHang['sdt_nguoi_nhan'] ?></td> -->
                                                                 <td class="fw-medium"><?= $donHang['dia_chi_nguoi_nhan'] ?></td>
                                                                 <td class="fw-medium"><?= $donHang['ngay_dat'] ?></td>
-                                                                <td class="fw-medium"><?= $donHang['ma_khuyen_mai'] ?></td>
+                                                                <!-- <td class="fw-medium"><?= $donHang['ma_khuyen_mai'] ?></td> -->
                                                                 <td class="fw-medium"><?= $donHang['ten_phuong_thuc'] ?></td>
                                                                 <td>
                                                                     <?php
@@ -118,11 +119,25 @@
                                                                 </td>
                                                                 <td class="fw-medium"><?= $donHang['thanh_toan'] ?><u>đ</u></td>
                                                                 <td class="fw-medium"><?= $donHang['ten_trang_thai'] ?></td>
+                                                                <!-- <td class="fw-medium"><?= $donHang['ghi_chu'] ?></td> -->
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
 
                                                                         <a href="?act=don-hangs&id=<?= $donHang['ma_don_hang'] ?>" class="link-success fs-15"><i class="bx bx-clipboard"></i></a>
-                                                                        <a href="?act=form-sua-don-hang&id=<?= $donHang['id'] ?>" class="link-warning"><i class="ri-settings-4-line"></i></a>
+                                                                        <?php if ($donHang['trang_thai_id'] == 7): ?>
+                                                                            <form action="?act=xoa-don-hang" method="POST"
+                                                                                onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
+                                                                                <input type="hidden" name="trang_thai_id" value="<?= $donHang['id'] ?>">
+                                                                                <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
+                                                                                    <i class="ri-delete-bin-line"></i>
+                                                                                </button>
+                                                                            </form>
+                                                                        <?php else: ?>
+                                                                            <!-- Nếu trạng thái đơn hàng không phải "hủy", chỉ hiển thị nút sửa -->
+                                                                            <a href="?act=form-sua-don-hang&id=<?= $donHang['id'] ?>" class="link-warning">
+                                                                                <i class="ri-settings-4-line"></i>
+                                                                            </a>
+                                                                        <?php endif; ?>
 
                                                                     </div>
                                                                 </td>

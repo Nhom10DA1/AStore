@@ -97,7 +97,7 @@
                                                                         <span class="badge bg-success">Hiển thị</span>
 
                                                                     <?php
-                                                                    } else { 
+                                                                    } else {
                                                                     ?>
                                                                         <span class="badge bg-danger">Không hiển thị</span>
                                                                     <?php
@@ -108,14 +108,14 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
-                                                                        <a href="?act=form-sua-danh-muc&danh_muc_id=<?= $danhMucs['id']?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
+                                                                        <a href="?act=form-sua-danh-muc&danh_muc_id=<?= $danhMucs['id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
                                                                         <form action="?act=xoa-danh-muc" method="post"
-                                                                        onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
-                                                                        <input type="hidden" name="danh_muc_id" value="<?= $danhMucs['id']?>">
-                                                                        <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
-                                                                            <i class="ri-delete-bin-line"></i></button>
+                                                                            onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
+                                                                            <input type="hidden" name="danh_muc_id" value="<?= $danhMucs['id'] ?>">
+                                                                            <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
+                                                                                <i class="ri-delete-bin-line"></i></button>
                                                                         </form>
-                                                                        
+
                                                                     </div>
                                                                 </td>
                                                             </tr>

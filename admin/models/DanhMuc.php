@@ -9,7 +9,7 @@
         }
 
         // Danh sach danh muc
-        public function getAll(){
+        public function getAllDanhMuc(){
             try {
                 //code...
                 $sql = 'SELECT * FROM danh_mucs';
