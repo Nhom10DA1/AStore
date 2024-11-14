@@ -204,27 +204,79 @@ class NguoiDungController
             exit();
         }
     }
-    public function formLogin(){
-        require_once './views/auth/login.php';
-        deleteSessionError();
-    }
-    public function login(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            // var_dump($email);
-            // var_dump($password);
-            $nguoiDung = $this->modelNguoiDung->checkLogin($email, $password);
-            if($nguoiDung){
-                $_SESSION['admin'] = $nguoiDung;
-                header("Location:" . BASE_URL_ADMIN);
-                exit();
-            }else{
-                $_SESSION['error'] = $nguoiDung;
-                $_SESSION['flash'] == true;
-                header('Location:?act=login-admin');
+    
+    
+        //kết nối đến fite model
+        public function formlogin(){
+            require_once './views/auth/login.php';
+            deleteSessionError();
+    
+        }
+        public function login()
+        {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                // var_dump($password); die;
+    
+                // Xử lí kiểm tra thông tin đăng nhập
+                //check rong 
+    
+                $errors = [];
+                    if (empty($email)) {
+                        $errors['email'] = 'Email là bắt buộc';
+        
+                    }
+                    if (empty($password)) {
+                        $errors['password'] = 'Password là bắt buộc';
+        
+                    }
+                
+                if (empty($errors)) {
+                $user = $this->modelNguoiDung->checkLogin($email, $password);
+                // var_dump($user);die;
+                // unset($_SESSION['errors']);
+                }else {
+                    // Lỗi lưu vào session
+                    $_SESSION['errors'] = $errors;
+    
+                    header('Location:' . BASE_URL_ADMIN . '?act=login-admin');
+                    exit();
+                }
+    
+                if ($user) {
+    
+                    $_SESSION['user_admin'] = $user;
+                    // var_dump($_SESSION['user_admin']); die();
+    
+                    header('Location:' . BASE_URL_ADMIN);
+                    exit();
+                } else {
+                    // Lỗi lưu vào session
+                    $_SESSION['errors'] = $user;
+                    // var_dump($_SESSION['error']); die();
+    
+                    $_SESSION['flash'] = true;
+    
+                    header('Location:' . BASE_URL_ADMIN . '?act=login-admin');
+                    exit();
+                }
+                
             }
         }
-        
-    }
+    
+    
+        public function logout()
+        {
+            
+            // var_dump($_SESSION['user_admin']);die;
+            if (isset($_SESSION['user_admin'])) {
+                unset($_SESSION['user_admin']);
+                // session_destroy();
+                
+                header('location:' . BASE_URL_ADMIN . '?act=login-admin');
+            }
+           
+        }
 }

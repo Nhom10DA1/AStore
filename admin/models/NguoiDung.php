@@ -112,27 +112,31 @@ class NguoiDung
     public function checkLogin($email, $mat_khau)
     {
         try {
-            $sql = 'SELECT * FROM nguoi_dungs WHERE email = :email';
+            $sql = 'SELECT * FROM nguoi_dungs WHERE email = :email ';
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(['email' => $email]);
-            $nguoiDung = $stmt->fetch();
-
-            if ($nguoiDung && password_verify($mat_khau, $nguoiDung['mat_khau'])) {
-                if ($nguoiDung['vai_tro'] == 1) {
-                    if ($nguoiDung['trang_thai'] == 1) {
-                        return true;
+            $user = $stmt->fetch();
+            // Kiểm tra nếu email hoặc mật khẩu bị trống
+            if (!empty($email) || !empty($mat_khau)) {
+                if ($mat_khau == $user['mat_khau']) {
+                    if ($user['chuc_vu_id'] == "Admin") {
+                        if ($user['trang_thai'] == "Hoạt động") {
+                            return $user['email'];
+                        } else {
+                            return 'Tài khoản bị cấm';
+                        }
                     } else {
-                        return "Tài khoản này đã ngưng hoạt động!";
+                        return 'Tài khoản không có quyền đăng nhập';
                     }
                 } else {
-                    return "Bạn không phải admin!";
+                    return 'Đăng nhập sai thông tin mật khẩu hoặc tài khoản';
                 }
             } else {
-                return "Email hoặc mật khẩu không đúng!";
+                return 'Vui lòng nhập emai và mật khẩu';
             }
-        } catch (PDOException $e) {
-            error_log('Error: ' . $e->getMessage());
-            return 'An error occurred. Please try again later.';
+        } catch (Exception $e) {
+            echo 'Lỗi: ' . $e->getMessage();
+            return false;
         }
     }
 }
