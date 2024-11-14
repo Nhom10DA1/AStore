@@ -50,7 +50,7 @@
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Tai khoan quan tri</li>
+                                        <li class="breadcrumb-item active">Danh sách thêm sản phẩm </li>
                                     </ol>
                                 </div>
 
@@ -64,7 +64,7 @@
                             <div class="h-100">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Form Them san pham </h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">Danh sách thêm sản phẩm </h4>
                                   
                                 </div><!-- end card header -->
 
@@ -74,7 +74,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="compnayNameinput" class="form-label"> Ma san pham </label>
+                                                        <label for="compnayNameinput" class="form-label">Mã sản phẩm</label>
                                                         <input type="text" class="form-control" placeholder="" name="ma_san_pham">
                                                         <span class="text-danger">
                                                             <?= !empty($_SESSION['errors']['ma_san_pham']) ? $_SESSION['errors']['ma_san_pham'] : '' ?>
@@ -85,9 +85,9 @@
                                                 <!--end col-->
                                               
                                                 <!--end col-->
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Ten san pham </label>
+                                                        <label for="emailidInput" class="form-label">Tên sản phẩm</label>
                                                         <input type="text" class="form-control" placeholder="" name="ten_san_pham">
                                                         <span class="text-danger">
                                                             <?= !empty($_SESSION['errors']['ten_san_pham']) ? $_SESSION['errors']['ten_san_pham'] : '' ?>
@@ -96,9 +96,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Anh san pham </label>
+                                                        <label for="emailidInput" class="form-label">Hình ảnh sản phấm</label>
                                                         <input type="file" class="form-control"  name="anh_san_pham" >
                                                         <span class="text-danger">
                                                             <?= !empty($_SESSION['errors']['anh_san_pham']) ? $_SESSION['errors']['anh_san_pham'] : '' ?>
@@ -108,18 +108,18 @@
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Abum anh san pham </label>
+                                                        <label for="emailidInput" class="form-label">Abum ảnh sản phẩm</label>
                                                         <input type="file" class="form-control"  name="img_array[]" multiple >
                                                         
                                                     </div>
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Gia nhap</label>
+                                                        <label for="emailidInput" class="form-label">Giá nhập</label>
                                                         <input type="number" class="form-control" placeholder="" name="gia_nhap">
                                                         <span class="text-danger">
                                                             <?= !empty($_SESSION['errors']['gia_nhap']) ? $_SESSION['errors']['gia_nhap'] : '' ?>
@@ -127,9 +127,9 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Gia ban </label>
+                                                        <label for="emailidInput" class="form-label">Giá bán</label>
                                                         <input type="number" class="form-control"  name="gia_ban">
                                                         <span class="text-danger">
                                                             <?= !empty($_SESSION['errors']['gia_ban']) ? $_SESSION['errors']['gia_ban'] : '' ?>
@@ -139,9 +139,9 @@
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Gia khuyen mai </label>
+                                                        <label for="emailidInput" class="form-label">Giá khuyến mãi</label>
                                                         <input type="number" class="form-control"  name="gia_khuyen_mai">
                                                         <span class="text-danger">
                                                             <?= !empty($_SESSION['errors']['gia_khuyen_mai']) ? $_SESSION['errors']['gia_khuyen_mai'] : '' ?>
@@ -151,9 +151,9 @@
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Ngay nhap </label>
+                                                        <label for="emailidInput" class="form-label">Ngày nhập</label>
                                                         <input type="date" class="form-control"  name="ngay_nhap">
                                                         <span class="text-danger">
                                                             <?= !empty($_SESSION['errors']['ngay_nhap']) ? $_SESSION['errors']['ngay_nhap'] : '' ?>
@@ -163,9 +163,9 @@
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">So luong </label>
+                                                        <label for="emailidInput" class="form-label">Số lượng</label>
                                                         <input type="number" class="form-control"  name="so_luong">
                                                         <span class="text-danger">
                                                             <?= !empty($_SESSION['errors']['so_luong']) ? $_SESSION['errors']['so_luong'] : '' ?>
@@ -179,7 +179,7 @@
                                           
                                                 <div class="form-group col-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Mo ta </label>
+                                                        <label for="emailidInput" class="form-label">Mô tả</label>
                                                         <input type="text" class="form-control"  name="mo_ta">
                                                         <span class="text-danger">
                                                             <?= !empty($_SESSION['errors']['mo_ta']) ? $_SESSION['errors']['mo_ta'] : '' ?>
@@ -190,26 +190,26 @@
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Mo ta chi tiet</label>
+                                                        <label for="emailidInput" class="form-label">Mô tả chi tiết</label>
                                                         <input type="text" class="form-control"  name="mo_ta_chi_tiet">
                                                        
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Luot xem</label>
+                                                        <label for="emailidInput" class="form-label">Lượt xem</label>
                                                         <input type="number" class="form-control"  name="luot_xem">
                                                        
                                                     </div>
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Danh muc </label>
+                                                        <label for="emailidInput" class="form-label">Danh Mục </label>
                                                         <select class="form-select" name="danh_muc_id">
                                                             <option selected disabled>Chọn danh muc sản phẩm </option>
                                                             <?php foreach($listDanhMuc  as $danhmuc): ?>
@@ -224,9 +224,9 @@
                                                 </div>
                                                 <!--end col-->
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Trang thai </label>
+                                                        <label for="emailidInput" class="form-label">Trạng thái</label>
                                                         <select class="form-select" name="trang_thai">
                                                             <option selected disabled>Chọn trạng thái sản phẩm </option>
                                                             <option value="1">Còn bán</option>
@@ -241,12 +241,11 @@
                                                 <!--end col-->
                                                 
                                                
-                                                <!--end col-->
                                                 <div class="col-lg-12">
-                                                    <div class="text-end">
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                        <div class="text-center">
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
                                                     </div>
-                                                </div>
                                                 <!--end col-->
                                             </div>
                                             <!--end row-->

@@ -67,20 +67,20 @@
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Cập nhật danh mục</h4>
-                                      
+
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
                                         <div class="live-preview">
                                             <form action="?act=sua-danh-muc" method="POST">
-                                                <input type="hidden" name="id" value="<?= $danhMucs['id']?>">
-                                                <div class="row">                                               
+                                                <input type="hidden" name="id" value="<?= $danhMucs['id'] ?>">
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="citynameInput" class="form-label">Tên danh mục</label>
                                                             <input type="text" class="form-control" placeholder="Nhập tên danh mục" name="ten_danh_muc" value="<?= $danhMucs['ten_danh_muc'] ?>">
                                                             <span class="text-danger">
-                                                                        <?= !empty($_SESSION['errors']['ten_danh_muc']) ? $_SESSION['errors']['ten_danh_muc'] : '' ?>
+                                                                <?= !empty($_SESSION['errors']['ten_danh_muc']) ? $_SESSION['errors']['ten_danh_muc'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -88,14 +88,14 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="ForminputState" class="form-label">Trạng thái</label>
-                                                            <select  class="form-select" name="trang_thai">
+                                                            <select class="form-select" name="trang_thai">
                                                                 <option selected disabled>Chọn trạng thái</option>
                                                                 <option value="1" <?= $danhMucs['trang_thai'] == 1 ? 'selected' : '' ?>>Hiển thị</option>
                                                                 <option value="2" <?= $danhMucs['trang_thai'] == 2 ? 'selected' : '' ?>>Không hiển thị</option>
-                                                                
+
                                                             </select>
                                                             <span class="text-danger">
-                                                                        <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
+                                                                <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -110,7 +110,7 @@
                                                 <!--end row-->
                                             </form>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                             </div> <!-- end col -->

@@ -64,11 +64,11 @@
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Danh sách danh sách đơn hàng</h4>
-                                        <form class="position-relative">
+                                        <!-- <form class="position-relative">
                                             <input type="text" id="search-options" placeholder="Tìm kiếm đơn hàng..." autocomplete="off" class="">
                                             <span class="mdi mdi-magnify search-widget-icon"></span>
                                             <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
-                                        </form>
+                                        </form> -->
                                     </div><!-- end card header -->
                                     <div class="card-body">
                                         <div class="live-preview">
@@ -90,23 +90,19 @@
                                                             <!-- <th scope="col">Thanh toán</th> -->
                                                             <th scope="col">Trạng thái</th>
                                                             <!-- <th>Ghi chú</th> -->
-                                                            <th>Hành động</th>
+                                                            <th scope="col">Hành động</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php foreach ($donHangs as $index => $donHang) : ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <!-- <td class="fw-medium"><?= $donHang['ten'] ?></td> -->
+
                                                                 <td class="fw-medium"><?= $donHang['ma_don_hang'] ?></td>
-                                                                <!-- <td class="fw-medium"><?= $donHang['ten_nguoi_nhan'] ?></td> -->
-                                                                <!-- <td class="fw-medium"><?= $donHang['email_nguoi_nhan'] ?></td>
-                                                                <td class="fw-medium">0<?= $donHang['sdt_nguoi_nhan'] ?></td> -->
-                                                                <!-- <td class="fw-medium"><?= $donHang['dia_chi_nguoi_nhan'] ?></td> -->
+
                                                                 <td class="fw-medium"><?= $donHang['ngay_dat'] ?></td>
-                                                                <!-- <td class="fw-medium"><?= $donHang['ma_khuyen_mai'] ?></td> -->
-                                                                <!-- <td class="fw-medium"><?= $donHang['ten_phuong_thuc'] ?></td> -->
-                                                                <td>
+
+                                                                <td class="fw-medium">
                                                                     <?php
                                                                     if ($donHang['trang_thai_thanh_toan'] == 1) { ?>
                                                                         <span class="badge bg-success">Đã thanh toán</span>
@@ -117,9 +113,9 @@
                                                                     }
                                                                     ?>
                                                                 </td>
-                                                                <!-- <td class="fw-medium"><?= $donHang['thanh_toan'] ?><u>đ</u></td> -->
+
                                                                 <td class="fw-medium"><?= $donHang['ten_trang_thai'] ?></td>
-                                                                <!-- <td class="fw-medium"><?= $donHang['ghi_chu'] ?></td> -->
+
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
 
@@ -133,7 +129,6 @@
                                                                                 </button>
                                                                             </form>
                                                                         <?php else: ?>
-                                                                            <!-- Nếu trạng thái đơn hàng không phải "hủy", chỉ hiển thị nút sửa -->
                                                                             <a href="?act=form-sua-don-hang&id=<?= $donHang['id'] ?>" class="link-warning">
                                                                                 <i class="ri-settings-4-line"></i>
                                                                             </a>

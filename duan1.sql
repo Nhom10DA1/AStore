@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 14, 2024 at 11:08 AM
+-- Generation Time: Nov 14, 2024 at 05:44 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -38,9 +38,32 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `ten_banner`, `trang_thai`) VALUES
-(13, 'uploads/Ảnh chụp màn hình 2024-04-01 124003.png', 2),
+(13, 'uploads/sharktank2-1.png.webp', 1),
 (14, 'uploads/logo-5.png', 2),
-(15, 'uploads/tải xuống (1).jpg', 1);
+(15, 'uploads/tải xuống (1).jpg', 1),
+(16, 'uploads/logo-5.png', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `binh_luans`
+--
+
+CREATE TABLE `binh_luans` (
+  `id` int NOT NULL,
+  `san_pham_id` int NOT NULL,
+  `tai_khoan_id` int NOT NULL,
+  `noi_dung` text COLLATE utf8mb4_general_ci NOT NULL,
+  `ngay_dang` date NOT NULL,
+  `trang_thai` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `binh_luans`
+--
+
+INSERT INTO `binh_luans` (`id`, `san_pham_id`, `tai_khoan_id`, `noi_dung`, `ngay_dang`, `trang_thai`) VALUES
+(1, 137, 1, 'èewfewgew', '2024-11-12', 1);
 
 -- --------------------------------------------------------
 
@@ -61,7 +84,8 @@ CREATE TABLE `danh_mucs` (
 INSERT INTO `danh_mucs` (`id`, `ten_danh_muc`, `trang_thai`) VALUES
 (1, 'Iphone', 1),
 (2, 'Mac', 0),
-(10, 'Phụ Kiện', 1);
+(10, 'Phụ Kiện', 1),
+(12, 'Phụ Kiện', 2);
 
 -- --------------------------------------------------------
 
@@ -91,8 +115,116 @@ CREATE TABLE `don_hangs` (
 --
 
 INSERT INTO `don_hangs` (`id`, `nguoi_dung_id`, `ma_don_hang`, `ten_nguoi_nhan`, `email_nguoi_nhan`, `sdt_nguoi_nhan`, `dia_chi_nguoi_nhan`, `ngay_dat`, `khuyen_mai_id`, `phuong_thuc_thanh_toan`, `trang_thai_thanh_toan`, `thanh_toan`, `trang_thai_id`, `ghi_chu`) VALUES
-(1, 49, 'PH54651', 'Phạm Phú Trung', 'phutrung1606a@gmail.com', 355011558, 'Hải Dương', '2024-11-06', 1, 1, 1, 23000, 1, NULL),
+(1, 49, 'PH54651', 'Phạm Phú Trung', 'phutrung1606a@gmail.com', 355011558, 'Hải Dương', '2024-11-06', 1, 1, 1, 23000, 5, NULL),
 (2, 1, 'PH111223', 'Tiên Văn Sư', 'tiensu@gmail.com', 355011558, 'Hà Nam', '2024-11-29', 2, 2, 1, 23000, 7, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hinh_anh_san_phams`
+--
+
+CREATE TABLE `hinh_anh_san_phams` (
+  `id` int NOT NULL,
+  `san_pham_id` int NOT NULL,
+  `link_hinh_anh` text COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `hinh_anh_san_phams`
+--
+
+INSERT INTO `hinh_anh_san_phams` (`id`, `san_pham_id`, `link_hinh_anh`) VALUES
+(87, 111, './admin/uploads/1731432987ggmkt.jpg'),
+(88, 111, './admin/uploads/1731432987google-maps-icon-on-map - Copy.jpg'),
+(89, 111, './admin/uploads/1731432987google-maps-icon-on-map.jpg'),
+(90, 111, './admin/uploads/1731432987image2132.png'),
+(91, 111, './admin/uploads/1731432987images - Copy.jpg'),
+(92, 111, './admin/uploads/1731432987images.jpg'),
+(93, 111, './admin/uploads/1731432987images.png'),
+(94, 111, './admin/uploads/1731432987iphone 16 pro - 3.jpg'),
+(95, 111, './admin/uploads/1731432987mktt.png'),
+(96, 111, './admin/uploads/1731432987pngtree-vector-conceptual-design-of-circuit-board-logo-on-a-white-background-png-image_12534520.png'),
+(97, 111, './admin/uploads/1731432987Q.jpg'),
+(98, 111, './admin/uploads/1731432987simsmkt.jpg'),
+(99, 111, './admin/uploads/1731432987slider_2_image.png'),
+(100, 111, './admin/uploads/1731432987slider_2_image.webp'),
+(101, 111, './admin/uploads/1731432987Thiet-bi-dien-tu-van-phong-768x470.jpg'),
+(102, 111, './admin/uploads/1731432987Thiet-bi-dien-tu-vien-thong-768x250.jpg'),
+(103, 111, './admin/uploads/1731432987Youtube_logo.png'),
+(104, 111, './admin/uploads/1731432987zalomkt.jpg'),
+(311, 127, './admin/uploads/17315808012023_Facebook_icon.svg'),
+(312, 127, './admin/uploads/1731580801ggmkt.jpg'),
+(313, 127, './admin/uploads/1731580801google-maps-icon-on-map - Copy.jpg'),
+(314, 127, './admin/uploads/1731580801google-maps-icon-on-map.jpg'),
+(315, 127, './admin/uploads/1731580801image2132.png'),
+(316, 127, './admin/uploads/1731580801images - Copy.jpg'),
+(317, 127, './admin/uploads/1731580801images.jpg'),
+(318, 127, './admin/uploads/1731580801images.png'),
+(319, 127, './admin/uploads/1731580801iphone 16 pro - 3.jpg'),
+(320, 127, './admin/uploads/1731580801kisspng-tiktok-video-musical-ly-youtube-vine-1713907999522.webp'),
+(321, 127, './admin/uploads/1731580801logo21.png'),
+(322, 127, './admin/uploads/1731580801mktt.png'),
+(323, 127, './admin/uploads/1731580801pngtree-vector-conceptual-design-of-circuit-board-logo-on-a-white-background-png-image_12534520.png'),
+(324, 127, './admin/uploads/1731580801Q.jpg'),
+(325, 127, './admin/uploads/1731580801san_phams.sql'),
+(326, 127, './admin/uploads/1731580801simsmkt.jpg'),
+(327, 127, './admin/uploads/1731580801slider_2_image.png'),
+(328, 127, './admin/uploads/1731580801slider_2_image.webp'),
+(329, 127, './admin/uploads/1731580801Thiet-bi-dien-tu-van-phong-768x470.jpg'),
+(341, 129, './admin/uploads/17315822788.jpg'),
+(342, 129, './admin/uploads/17315822789.jpg'),
+(343, 129, './admin/uploads/173158227810.jpg'),
+(344, 129, './admin/uploads/17315822782023_Facebook_icon.svg'),
+(345, 129, './admin/uploads/1731582278a.jpg'),
+(346, 129, './admin/uploads/1731582278banner 3.jpg'),
+(347, 129, './admin/uploads/1731582278banner 3.webp'),
+(348, 129, './admin/uploads/1731582278banner_2.jpg'),
+(349, 129, './admin/uploads/1731582278banner_2.webp'),
+(350, 129, './admin/uploads/1731582278bn.jpg'),
+(351, 129, './admin/uploads/1731582278fbmkt.jpg'),
+(352, 129, './admin/uploads/1731582278ggmkt.jpg'),
+(353, 129, './admin/uploads/1731582278google-maps-icon-on-map - Copy.jpg'),
+(354, 129, './admin/uploads/1731582278google-maps-icon-on-map.jpg'),
+(355, 129, './admin/uploads/1731582278image2132.png'),
+(356, 129, './admin/uploads/1731582278images - Copy.jpg'),
+(357, 129, './admin/uploads/1731582278images.jpg'),
+(358, 129, './admin/uploads/1731582278images.png'),
+(359, 130, './admin/uploads/1731582570bn.jpg'),
+(360, 130, './admin/uploads/1731582570fbmkt.jpg'),
+(361, 130, './admin/uploads/1731582570ggmkt.jpg'),
+(362, 130, './admin/uploads/1731582570google-maps-icon-on-map - Copy.jpg'),
+(363, 130, './admin/uploads/1731582570google-maps-icon-on-map.jpg'),
+(364, 131, './admin/uploads/1731582706Thiet-bi-dien-tu-van-phong-768x470.jpg'),
+(365, 131, './admin/uploads/1731582706Thiet-bi-dien-tu-vien-thong-768x250.jpg'),
+(366, 131, './admin/uploads/1731582706thiet-ke-bo-mach-dien-tu-1.jpg'),
+(367, 131, './admin/uploads/1731582706udemy.jpg'),
+(368, 131, './admin/uploads/1731582706Youtube_logo.png'),
+(369, 131, './admin/uploads/1731582706zalomkt.jpg'),
+(370, 132, './admin/uploads/1731584399a.jpg'),
+(371, 132, './admin/uploads/1731584399banner 3.webp'),
+(372, 132, './admin/uploads/1731584399mktt.png'),
+(373, 132, './admin/uploads/1731584399Q.jpg'),
+(374, 133, './admin/uploads/1731584843bn.jpg'),
+(375, 133, './admin/uploads/1731584843iphone 16 pro - 3.jpg'),
+(376, 133, './admin/uploads/1731584843kisspng-tiktok-video-musical-ly-youtube-vine-1713907999522.webp'),
+(377, 134, './admin/uploads/1731586496bn.jpg'),
+(378, 134, './admin/uploads/1731586496fbmkt.jpg'),
+(379, 134, './admin/uploads/1731586496ggmkt.jpg'),
+(380, 134, './admin/uploads/1731586496google-maps-icon-on-map - Copy.jpg'),
+(381, 135, './admin/uploads/1731586630iphone 16 pro - 3.jpg'),
+(382, 135, './admin/uploads/1731586630kisspng-tiktok-video-musical-ly-youtube-vine-1713907999522.webp'),
+(383, 135, './admin/uploads/1731586630Youtube_logo.png'),
+(384, 135, './admin/uploads/1731586630zalomkt.jpg'),
+(385, 136, './admin/uploads/1731586811kisspng-tiktok-video-musical-ly-youtube-vine-1713907999522.webp'),
+(386, 136, './admin/uploads/1731586811logo21.png'),
+(387, 136, './admin/uploads/1731586811mktt.png'),
+(388, 137, './admin/uploads/1731587650slider_2_image.png'),
+(389, 137, './admin/uploads/1731587650Youtube_logo - Copy.png'),
+(390, 137, './admin/uploads/17315876502023_Facebook_icon - Copy.svg'),
+(391, 138, './admin/uploads/1731588985Youtube_logo - Copy.png'),
+(392, 138, './admin/uploads/1731588985Youtube_logo.png'),
+(393, 138, './admin/uploads/1731588985zalomkt.jpg');
 
 -- --------------------------------------------------------
 
@@ -167,9 +299,9 @@ CREATE TABLE `nguoi_dungs` (
 --
 
 INSERT INTO `nguoi_dungs` (`id`, `ten`, `email`, `mat_khau`, `so_dien_thoai`, `dia_chi`, `hinh_anh`, `ngay_sinh`, `gioi_tinh`, `trang_thai`, `vai_tro`) VALUES
-(1, 'Nguyễn Văn A', 'admin@fpt.edu.vn', '123456', 355011558, 'Hà Nội', './uploads/images/avatarUser.jpg', '2024-11-14', 1, 1, 1),
-(49, 'Phạm Phú Trung', 'admin@gmail.com', '$2y$10$CgtO7SrfPTXR6hMAGStD..fMhpmSLKMmjw/rpOb0Xcj3rTwTJS3bW', 3245567, '321423', './uploads/images/67332c0d5b83f3_l.png', '2001-03-23', 1, 1, 2),
-(50, 'Nguyễn Văn ABC', 'admin@fpt.edu.vn', '$2y$10$PGQTbOYZGJSSiGRAeyKDjOlgm.GKTtZs7y8C.3TpZHS8Hr4C3pqGK', 123456789, 'Hà Nội', './uploads/images/6735d70fdc0acNew-York-Yankees.png', '2011-11-11', 2, 2, 1);
+(1, 'Nguyễn Văn A', 'admin@fpt.edu.vn', '$2y$10$KW7bcY5NGfWq/K3Y8yNSJObPrLVAuyoOw6JSr/gbU0CsCp0rNPXyS', 355011558, 'Hà Nội', './uploads/images/avatarUser.jpg', '2024-11-14', 1, 1, 1),
+(49, 'Phạm Phú Trung', 'admin@gmail.com', '$2y$10$KSqjyVpUIx8.YGFutbLLsu2zSVSr4lPv1e3YJy99N7L2G7CqC08Km', 3245567, '321423', './uploads/images/67332c0d5b83f3_l.png', '2001-03-23', 1, 1, 2),
+(50, 'Nguyễn Văn ABC', 'admin@fpt.edu.vn', '$2y$10$oN0TJTly7j2cOgVJt56GluoKB42aUKOlofvmre2VUEvb8NuiscaIm', 123456789, 'Hà Nội', './uploads/images/6735d70fdc0acNew-York-Yankees.png', '2011-11-11', 2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -229,16 +361,18 @@ INSERT INTO `san_phams` (`id`, `ten_san_pham`, `luot_xem`, `thong_so`, `so_luong
 (94, 'sd', 0, '', 56, 0, 'fd', 'uploads/17313169604.jpg', '0.00', '344.00', '0.00', '', 2, 0, 0, '0000-00-00'),
 (95, 'rtre', 0, '', 54, 0, 'gdfgdfg', 'uploads/1731317893a.jpg', '0.00', '6546.00', '0.00', '', 2, 0, 0, '0000-00-00'),
 (96, 'rtrt', 4543, '345', 43, 45, 'egrgrgg', NULL, '33.00', '34.00', '0.00', 'vrttt', 0, 0, 0, '0000-00-00'),
-(97, 'asas', 4534, '', 434545, 0, 'ẻtht', './admin/uploads/17314323415.jpg', '3435.00', '23213.00', '2343.00', 'eu h e hewuteutetie', 2, 4, 842, '2024-11-12'),
-(99, '4534', 5654, '', 46546, 0, 'ytryg', './admin/uploads/17314286184.jpg', '456.00', '454.00', '46456.00', 'tsdtrtrdt', 1, 4, 56456, '2024-11-12'),
-(100, 'hẹhijewf', 43234, '', 32432, 0, 'rgdgre', './admin/uploads/17314922042024-08-09 (2).png', '243.00', '3432.00', '242.00', '4345345rgrg', 1, 1, 454, '2024-11-12'),
 (111, 'tgdf', 4354, '', 2423, 0, 'fcrefrr4543', '', '24.00', '34543.00', '242.00', 'erewr4543', 1, 13, 334, '2024-11-13'),
-(112, 'erer', 43534, '', 3534, 0, 'rterf4543', './admin/uploads/17314338427.jpg', '435.00', '43.00', '353.00', 'rvr435', 1, 3, 343, '2024-11-13'),
-(113, 'erew', 354, '', 543, 0, '3534', './admin/uploads/1731433915a.jpg', '345.00', '564.00', '656.00', '534', 2, 4, 342, '2024-11-13'),
-(115, 'asas', 654645, '', 575, 0, 'htyrty66', '', '67.00', '676.00', '5756.00', 'ntyrnyry5656', 2, 4, 842, '2024-11-13'),
-(116, 'asas', 654645, '', 575, 0, 'htyrty66', './admin/uploads/17314365285.jpg', '67.00', '676.00', '5756.00', 'ntyrnyry5656', 2, 4, 842, '2024-11-13'),
-(117, 'dfds', 3534, '', 453, 0, '32432', './admin/uploads/17314365639.jpg', '353.00', '34324.00', '353.00', '23432', 1, 4, 56456, '2024-11-13'),
-(118, 'rrr454354', 46, '', 46, 0, '54644', './admin/uploads/1731436694_10.jpg', '564.00', '46.00', '46.00', '6544', 1, 4, 33, '2024-11-13');
+(127, 'dfds', 646, '', 64, 0, 'ybtrty5654', './admin/uploads/17315808422023_Facebook_icon.svg', '4645.00', '64.00', '4654.00', 'btrby6546', 1, 1, 56456, '2024-11-14'),
+(129, '42', 54, '', 54, 0, 'fgfdgf', './admin/uploads/17315822788.jpg', '43.00', '432.00', '434354.00', 'uhfnudshfufhie', 1, 2, 842, '2024-11-14'),
+(130, 'fdsf', 32, '', 432, 0, 'dfdsfdfdddddddddddddddddddddd', './admin/uploads/1731582570a.jpg', '343.00', '54.00', '4324.00', 'eu h e hewuteutetie', 2, 1, 300, '2024-11-14'),
+(131, 'asas', 65, '', 56, 0, 'tỷ', './admin/uploads/1731582706a.jpg', '56.00', '65.00', '56.00', 'yt', 1, 3, 56456, '2024-11-14'),
+(132, 'dfds', 435, '', 24, 0, 'ewrew343', './admin/uploads/1731584399a.jpg', '242.00', '23.00', '43243.00', 'ewrew324', 1, 2, 842, '2024-11-14'),
+(133, 'brty', 45, '', 43, 0, 'er453', './admin/uploads/17315848432023_Facebook_icon.svg', '43.00', '32.00', '435.00', 'wrew543', 2, 1, 64, '2024-11-14'),
+(134, 'sfsf', 34, '', 34, 0, '42erewrwe', './admin/uploads/1731586496a.jpg', '0.00', '4.00', '423.00', 'cerwr3434', 1, 2, 0, '2024-11-14'),
+(135, 'Redmi K70 Pro', 32, '', 32, 0, 'Redmi K70 trang bị chip Snapdragon 8 Gen 2 kết hợp với RAM lên tới 16GB giúp đảm bảo hiệu năng vô cùng mạnh mẽ. Thiết bị xuất xưởng với hệ điều hành HyperOS hoàn toàn mới có nhiều tính năng hấp dẫn và hiện đại. Redmi K70 có màn hình OLED QHD+ hỗ trợ 68 tỷ màu có độ sáng siêu cao lên tới 4000 nit.', './admin/uploads/1731586630zalomkt.jpg', '12.00', '123.00', '3048.00', 'Redmi K70 ra mắt: Snapdragon 8 Gen 2, màn hình 2K, sạc nhanh 120 W (cập nhật: 29/11) Về tổng quan, mình nhận thấy Redmi K70 có ngoại hình khá tương đồng với một số mẫu Redmi Note được ra mắt gần đây. Máy sở hữu những đường nét vuông vắn ở cạnh viền, kết hợp cùng mặt lưng được bo cong nhẹ ở phần mép giúp tạo nên một tổng thể hài hòa. Đồng thời, khu vực mặt lưng của Redmi K70 cũng có sự tinh chỉnh cách thiết kế tùy theo phiên bản màu.', 1, 4, 0, '2024-11-14'),
+(136, 'êr', 54, '', 54, 0, 'Redmi K70 ra mắt: Snapdragon 8 Gen 2, màn hình 2K, sạc nhanh 120 W (cập nhật: 29/11) Về tổng quan, mình nhận thấy Redmi K70 có ngoại hình khá tương đồng với một số mẫu Redmi Note được ra mắt gần đây. Máy sở hữu những đường nét vuông vắn ở cạnh viền, kết hợp cùng mặt lưng được bo cong nhẹ ở phần mép giúp tạo nên một tổng thể hài hòa. Đồng thời, khu vực mặt lưng của Redmi K70 cũng có sự tinh chỉnh cách thiết kế tùy theo phiên bản màu.', './admin/uploads/1731586822a.jpg', '43.00', '23.00', '2443.00', 'vRedmi K70 ra mắt: Snapdragon 8 Gen 2, màn hình 2K, sạc nhanh 120 W (cập nhật: 29/11) Về tổng quan, mình nhận thấy Redmi K70 có ngoại hình khá tương đồng với một số mẫu Redmi Note được ra mắt gần đây. Máy sở hữu những đường nét vuông vắn ở cạnh viền, kết hợp cùng mặt lưng được bo cong nhẹ ở phần mép giúp tạo nên một tổng thể hài hòa. Đồng thời, khu vực mặt lưng của Redmi K70 cũng có sự tinh chỉnh cách thiết kế tùy theo phiên bản màu.', 1, 1, 34, '2024-11-14'),
+(137, 'Hiếu', 2, '', 21, 0, 'Redmi K70 ra mắt: Snapdragon 8 Gen 2, màn hình 2K, sạc nhanh 120 W (cập nhật: 29/11) Về tổng quan, mình nhận thấy Redmi K70 có ngoại hình khá tương đồng với một số mẫu Redmi Note được ra mắt gần đây. Máy sở hữu những đường nét vuông vắn ở cạnh viền, kết hợp cùng mặt lưng được bo cong nhẹ ở phần mép giúp tạo nên một tổng thể hài hòa. Đồng thời, khu vực mặt lưng của Redmi K70 cũng có sự tinh chỉnh cách thiết kế tùy theo phiên bản màu.', './admin/uploads/1731587650iphone 16 pro - 3.jpg', '23.00', '234.00', '21.00', 'Redmi K70 trang bị chip Snapdragon 8 Gen 2 kết hợp với RAM lên tới 16GB giúp đảm bảo hiệu năng vô cùng mạnh mẽ. Thiết bị xuất xưởng với hệ điều hành HyperOS hoàn toàn mới có nhiều tính năng hấp dẫn và hiện đại. Redmi K70 có màn hình OLED QHD+ hỗ trợ 68 tỷ màu có độ sáng siêu cao lên tới 4000 nit.', 1, 1, 56456, '2024-11-14'),
+(138, 'SSADSAD', 45, '', 42, 0, 'yyt', './admin/uploads/1731590727fbmkt.jpg', '32.00', '343.00', '242.00', 'gfgdfgd', 1, 3, 842, '2005-05-09');
 
 -- --------------------------------------------------------
 
@@ -274,21 +408,22 @@ INSERT INTO `tin_tucs` (`id`, `tieu_de_bai_viet`, `ngay_dang_bai`, `luot_xem`, `
 
 CREATE TABLE `trang_thai_don_hang` (
   `id` int NOT NULL,
-  `ten_trang_thai` varchar(255) NOT NULL
+  `ten_trang_thai` varchar(255) NOT NULL,
+  `trang_thai` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `trang_thai_don_hang`
 --
 
-INSERT INTO `trang_thai_don_hang` (`id`, `ten_trang_thai`) VALUES
-(1, 'Chờ xác nhận'),
-(2, 'Đã xác nhận'),
-(3, 'Đang giao'),
-(4, 'Đã giao'),
-(5, 'Đã hoàn thành'),
-(6, 'Đã thất bại'),
-(7, 'Đã hủy');
+INSERT INTO `trang_thai_don_hang` (`id`, `ten_trang_thai`, `trang_thai`) VALUES
+(1, 'Chờ xác nhận', 1),
+(2, 'Đã xác nhận', 1),
+(3, 'Đang giao', 1),
+(4, 'Đã giao', 1),
+(5, 'Đã hoàn thành', 1),
+(6, 'Đã thất bại', 1),
+(7, 'Đã hủy', 1);
 
 --
 -- Indexes for dumped tables
@@ -298,6 +433,12 @@ INSERT INTO `trang_thai_don_hang` (`id`, `ten_trang_thai`) VALUES
 -- Indexes for table `banners`
 --
 ALTER TABLE `banners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `binh_luans`
+--
+ALTER TABLE `binh_luans`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -315,6 +456,12 @@ ALTER TABLE `don_hangs`
   ADD KEY `lk_don_hangs_khuyen_mais` (`khuyen_mai_id`),
   ADD KEY `lk_don_hangs_trang_thai_don_hangs` (`trang_thai_id`),
   ADD KEY `lk_don_hangs_phuong_thuc_thanh_toans` (`phuong_thuc_thanh_toan`);
+
+--
+-- Indexes for table `hinh_anh_san_phams`
+--
+ALTER TABLE `hinh_anh_san_phams`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `khuyen_mais`
@@ -366,19 +513,31 @@ ALTER TABLE `trang_thai_don_hang`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `binh_luans`
+--
+ALTER TABLE `binh_luans`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `danh_mucs`
 --
 ALTER TABLE `danh_mucs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `don_hangs`
 --
 ALTER TABLE `don_hangs`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `hinh_anh_san_phams`
+--
+ALTER TABLE `hinh_anh_san_phams`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=394;
 
 --
 -- AUTO_INCREMENT for table `khuyen_mais`
@@ -408,7 +567,7 @@ ALTER TABLE `phuong_thuc_thanh_toans`
 -- AUTO_INCREMENT for table `san_phams`
 --
 ALTER TABLE `san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `tin_tucs`
@@ -420,7 +579,7 @@ ALTER TABLE `tin_tucs`
 -- AUTO_INCREMENT for table `trang_thai_don_hang`
 --
 ALTER TABLE `trang_thai_don_hang`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

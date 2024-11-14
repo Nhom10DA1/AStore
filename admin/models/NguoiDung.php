@@ -109,4 +109,30 @@ class NguoiDung
             echo 'An error occurred. Please try again later.';
         }
     }
+    public function checkLogin($email, $mat_khau)
+    {
+        try {
+            $sql = 'SELECT * FROM nguoi_dungs WHERE email = :email';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['email' => $email]);
+            $nguoiDung = $stmt->fetch();
+
+            if ($nguoiDung && password_verify($mat_khau, $nguoiDung['mat_khau'])) {
+                if ($nguoiDung['vai_tro'] == 1) {
+                    if ($nguoiDung['trang_thai'] == 1) {
+                        return true;
+                    } else {
+                        return "Tài khoản này đã ngưng hoạt động!";
+                    }
+                } else {
+                    return "Bạn không phải admin!";
+                }
+            } else {
+                return "Email hoặc mật khẩu không đúng!";
+            }
+        } catch (PDOException $e) {
+            error_log('Error: ' . $e->getMessage());
+            return 'An error occurred. Please try again later.';
+        }
+    }
 }

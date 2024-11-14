@@ -49,8 +49,8 @@
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Tai khoan quan tri</li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Trang chủ</a></li>
+                                        <li class="breadcrumb-item active">Danh sách sản phẩm</li>
                                     </ol>
                                 </div>
 
@@ -65,15 +65,12 @@
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Danh sach san pham </h4>
-                                        <!-- <a href="?act=form-them-san-pham" class="btn btn-soft-success material-shadow-none">
-                                                <i class="ri-add-circle-line align-middle me-1"></i> Them san pham </button>
-                                        </a> -->
+                                       
                                         <form class="pri-add-circle-line align-middle me-1">
-                                            <input type="text" id="search-options" placeholder="Tìm kiếm sản phẩm..." onkeyup="searchProducts()" autocomplete="off" class="">
-                                            <span class="mdi mdi-magnify search-widget-icon"></span>
+                                            <input type="text" id="search-options" placeholder="Tìm kiếm sản phẩm..."  onkeyup="searchProducts()" autocomplete="off" class="">
+                                            <span class="mdi mdi-magnify search-widget-icon btn btn-light" ></span>
                                             <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
                                         </form>
-
 
 
 
@@ -86,17 +83,14 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">STT</th>
-                                                            <th scope="col">Ma SP </th>
+
                                                             <th scope="col">Tên sản phẩm </th>
                                                             <th scope="col">Ảnh sản phẩm</th>
-
                                                             <th scope="col">Giá tiền</th>
                                                             <th scope="col">Giá khuyến mãi</th>
                                                             <th scope="col">Ngày nhập</th>
                                                             <th scope="col">Số lượng</th>
-
                                                             <th scope="col">Mô tả</th>
-
                                                             <th scope="col">Danh mục</th>
                                                             <th scope="col">Trạng thái</th>
                                                             <th scope="col">Action</th>
@@ -108,9 +102,7 @@
                                                         ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td><?= $sanPham['ma_san_pham'] ?></td>
                                                                 <td><?= $sanPham['ten_san_pham'] ?></td>
-
                                                                 <td>
                                                                     <img src="<?= BASE_URL .  $sanPham['anh_san_pham'] ?>" style="width: 100px" alt=""
                                                                         onerror="this.onerror=null; this.src='https:img.pikbest.com/wp/202345/cat-dog-pet-and-pets-in-real-pictures-wallpapers_9596134.jpg!w700wp'">
@@ -120,18 +112,18 @@
                                                                 <td><?= $sanPham['ngay_nhap'] ?></td>
                                                                 <td><?= $sanPham['so_luong'] ?></td>
 
-                                                                <td><?= $sanPham['mo_ta'] ?></td>
+                                                                <td><?= (strlen($sanPham['mo_ta']) > 50) ? substr($sanPham['mo_ta'], 0, 50) . "..." : $sanPham['mo_ta']; ?> </td>
                                                                 <td><?= $sanPham['ten_danh_muc'] ?></td>
 
                                                                 <td>
                                                                     <?php
                                                                     if ($sanPham['trang_thai'] == 1) {
                                                                     ?>
-                                                                        <span class="badge bg-success">Con Ban</span>
+                                                                        <span class="badge bg-success">Còn Hàng</span>
                                                                     <?php
                                                                     } else {
                                                                     ?>
-                                                                        <span class="badge bg-danger">Dung Ban </span>
+                                                                        <span class="badge bg-danger">Hết Hàng</span>
 
                                                                     <?php
                                                                     }
@@ -140,10 +132,10 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
+                                                                        <a href="?act=chi_tiet_san_pham&id_san_pham=<?= $sanPham['id'] ?>" class="link-success fs-15"><i class=" las la-exclamation-circle"></i></a>
                                                                         <a href="?act=form-sua-san-pham&id_san_pham=<?= $sanPham['id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
                                                                         <form action="?act=xoa-san-pham&id_san_pham=<?= $sanPham['id'] ?>" method="POST" onsubmit="return confirm('ban co dong y xoa khong')">
                                                                             <input type="hidden" name="quan_tri_id" value="<?= $sanPham['id'] ?>">
-
                                                                             <button type="submit" class="link-danger fs-15" style="border: none; background: none;"><i class="ri-delete-bin-line"></i></button>
                                                                         </form>
                                                                         <!-- <a href="javascript:void(0);" class="link-danger fs-15"><i class="ri-delete-bin-line"></i></a> -->
@@ -225,14 +217,12 @@
         const searchIcon = document.querySelector(".mdi-magnify.search-widget-icon");
         const closeIcon = document.getElementById("search-close-options");
         const rows = document.querySelectorAll("tbody tr");
-
         // Khi nhấn vào biểu tượng kính lúp để thực hiện tìm kiếm
         searchIcon.addEventListener("click", function() {
             const query = searchInput.value.toLowerCase().trim(); // Lấy giá trị nhập vào trong ô tìm kiếm
             if (query === "") {
                 return; // Nếu ô tìm kiếm trống, không làm gì cả
             }
-
             rows.forEach(row => {
                 const name = row.querySelector("td:nth-child(2)").innerText.toLowerCase(); // Lấy tên người dùng từ cột thứ 2
                 const email = row.querySelector("td:nth-child(3)").innerText.toLowerCase(); // Lấy email người dùng từ cột thứ 3
@@ -244,7 +234,6 @@
                     row.style.display = "none"; // Ẩn người dùng nếu không khớp với từ khóa
                 }
             });
-
             // Hiển thị biểu tượng đóng khi có kết quả tìm kiếm
             closeIcon.classList.remove("d-none");
         });

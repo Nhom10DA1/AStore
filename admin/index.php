@@ -14,6 +14,7 @@ require_once 'controllers/KhuyenMaiController.php';
 require_once 'controllers/BannerController.php';
 require_once 'controllers/SanPhamController.php';
 require_once 'controllers/DonHangController.php';
+require_once 'controllers/TrangThaiDonHangController.php';
 
 // Require toàn bộ file Models
 require_once 'models/DanhMuc.php';
@@ -24,6 +25,7 @@ require_once 'models/NguoiDung.php';
 require_once 'models/KhuyenMai.php';
 require_once 'models/Banner.php';
 require_once 'models/DonHangs.php';
+require_once 'models/TrangThaiDonHang.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -86,4 +88,16 @@ match ($act) {
     'form-sua-san-pham'     => (new SanPhamController())->formEditSanPham(),
     'sua-san-pham'          => (new SanPhamController())->postEditSanPham(),
     'xoa-san-pham'          => (new SanPhamController())->deleteSanPham(),
+    'chi_tiet_san_pham'    => (new SanPhamController())->detailSanPham(),
+    // Quản lý trạng thái đơn hàng
+    'trang-thai-don-hang' => (new TrangThaiDonHangController())->index(),
+    'them-trang-thai' =>(new TrangThaiDonHangController())->create(),
+    'xu-ly-them' =>(new TrangThaiDonHangController())->store(),
+    'sua-trang-thai' =>(new TrangThaiDonHangController())->edit(),
+    'xu-ly-sua-trang-thai' => (new TrangThaiDonHangController)->update(),
+    'xoa-trang-thai' =>(new TrangThaiDonHangController())->destroy(),
+    // dang nhap admin
+    'login-admin' => (new NguoiDungController)->formLogin(),
+    'check-login-admin' => (new NguoiDungController)->login(),
+
 };
