@@ -73,22 +73,27 @@ class NguoiDung
     {
         try {
             $sql = "UPDATE nguoi_dungs SET 
-                    ten = :ten, 
-                    email = :email, 
-                    mat_khau = :mat_khau, 
-                    so_dien_thoai = :so_dien_thoai, 
-                    dia_chi = :dia_chi, 
-                    hinh_anh = :hinh_anh, 
-                    ngay_sinh = :ngay_sinh, 
-                    gioi_tinh = :gioi_tinh, 
-                    vai_tro = :vai_tro, 
-                    trang_thai = :trang_thai 
-                WHERE id = :id";
+                ten = :ten, 
+                email = :email, 
+                mat_khau = :mat_khau, 
+                so_dien_thoai = :so_dien_thoai, 
+                dia_chi = :dia_chi, 
+                hinh_anh = :hinh_anh, 
+                ngay_sinh = :ngay_sinh, 
+                gioi_tinh = :gioi_tinh, 
+                vai_tro = :vai_tro, 
+                trang_thai = :trang_thai 
+            WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
+
+            // Hash the password
+            $hashedPassword = password_hash($mat_khau, PASSWORD_DEFAULT);
+
+            // Bind parameters
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':ten', $ten);
             $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':mat_khau', $mat_khau);
+            $stmt->bindParam(':mat_khau', $hashedPassword);
             $stmt->bindParam(':so_dien_thoai', $so_dien_thoai);
             $stmt->bindParam(':dia_chi', $dia_chi);
             $stmt->bindParam(':hinh_anh', $hinh_anh);
@@ -100,7 +105,8 @@ class NguoiDung
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
-            echo 'Error:' . $e->getMessage();
+            error_log('Error: ' . $e->getMessage());
+            echo 'An error occurred. Please try again later.';
         }
     }
 }

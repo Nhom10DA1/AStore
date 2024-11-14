@@ -90,6 +90,7 @@
                                                             <th scope="col">Giới tính</th>
                                                             <th scope="col">Vai trò</th>
                                                             <th scope="col">Trạng thái</th>
+                                                            <th scope="col">Hành động</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

@@ -68,54 +68,57 @@
                                     </div><!-- end card header -->
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=thay-doi-thong-tin&id=<?= $nguoiDung['id'] ?>" method="POST">
+                                            <form action="?act=thay-doi-thong-tin&id=<?= $nguoiDung['id'] ?>" method="POST" enctype="multipart/form-data">
                                                 <input type="hidden" name="id" value="<?= $nguoiDung['id'] ?>">
                                                 <div class="mb-3">
                                                     <label for="employeeName" class="form-label">Tên(Họ và tên)</label>
-                                                    <input type="text" class="form-control" name="ten" value="<?=$nguoiDung['ten']?>">
+                                                    <input type="text" class="form-control" name="ten" value="<?= $nguoiDung['ten'] ?>">
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['ten']) ? $_SESSION['errors']['ten'] : ''  ?>
                                                     </span>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="employeeName" class="form-label">Email</label>
-                                                    <input type="email" class="form-control" name="email" value="<?=$nguoiDung['email']?>">
+                                                    <input type="email" class="form-control" name="email" value="<?= $nguoiDung['email'] ?>">
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['email']) ? $_SESSION['errors']['email'] : ''  ?>
                                                     </span>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="employeeName" class="form-label">Mật khẩu</label>
-                                                    <input type="password" class="form-control" name="mat_khau"value="<?=$nguoiDung['mat_khau']?>">
+                                                    <input type="password" class="form-control" name="mat_khau" value="<?= $nguoiDung['mat_khau'] ?>">
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['mat_khau']) ? $_SESSION['errors']['mat_khau'] : ''  ?>
                                                     </span>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="employeeName" class="form-label">Số điện thoại</label>
-                                                    <input type="number" class="form-control" name="so_dien_thoai"value="<?=$nguoiDung['so_dien_thoai']?>">
+                                                    <input type="number" class="form-control" name="so_dien_thoai" value="<?= $nguoiDung['so_dien_thoai'] ?>">
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['so_dien_thoai']) ? $_SESSION['errors']['so_dien_thoai'] : ''  ?>
                                                     </span>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="employeeName" class="form-label">Địa chỉ</label>
-                                                    <input type="text" class="form-control" name="dia_chi" value="<?=$nguoiDung['dia_chi']?>">
+                                                    <input type="text" class="form-control" name="dia_chi" value="<?= $nguoiDung['dia_chi'] ?>">
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['dia_chi']) ? $_SESSION['errors']['dia_chi'] : ''  ?>
                                                     </span>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="employeeName" class="form-label">Avatar</label>
-                                                    <input class="form-control" type="file" id="formFileDisabled" name="hinh_anh" value="<?=$nguoiDung['hinh_anh']?>">
+                                                    <?php if (!empty($nguoiDung['hinh_anh'])): ?><br>
+                                                        <img src="<?= $nguoiDung['hinh_anh'] ?>" alt="Avatar" width="100" height="100"><br><br>
+                                                    <?php endif; ?>
+                                                    <input class="form-control" type="file" id="formFileDisabled" name="hinh_anh" onchange="updateFileName(this)">
                                                     <input type="hidden" name="hinh_anh_cu" value="<?= $nguoiDung['hinh_anh']; ?>">
                                                     <span class="text-danger">
-                                                        <?= !empty($_SESSION['errors']['hinh_anh']) ? $_SESSION['errors']['hinh_anh'] : ''  ?>
+                                                        <?= !empty($_SESSION['errors']['hinh_anh']) ? $_SESSION['errors']['hinh_anh'] : '' ?>
                                                     </span>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="employeeName" class="form-label">Ngày sinh</label>
-                                                    <input type="date" class="form-control" name="ngay_sinh" value="<?=$nguoiDung['ngay_sinh']?>">
+                                                    <input type="date" class="form-control" name="ngay_sinh" value="<?= $nguoiDung['ngay_sinh'] ?>">
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['ngay_sinh']) ? $_SESSION['errors']['ngay_sinh'] : ''  ?>
                                                     </span>
@@ -124,8 +127,8 @@
                                                     <label for="VertimeassageInput" class="form-label">Giới tính</label>
                                                     <select class="form-select" name="gioi_tinh">
                                                         <option selected disabled>-Chọn giới tính-</option>
-                                                        <option value="1" <?= $nguoiDung['gioi_tinh'] == 1 ? 'selected':''?>>Nam</option>
-                                                        <option value="2" <?= $nguoiDung['gioi_tinh'] == 2 ? 'selected':''?>>Nữ</option>
+                                                        <option value="1" <?= $nguoiDung['gioi_tinh'] == 1 ? 'selected' : '' ?>>Nam</option>
+                                                        <option value="2" <?= $nguoiDung['gioi_tinh'] == 2 ? 'selected' : '' ?>>Nữ</option>
                                                     </select>
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['gioi_tinh']) ? $_SESSION['errors']['gioi_tinh'] : ''  ?>
@@ -135,8 +138,8 @@
                                                     <label for="VertimeassageInput" class="form-label">Vai trò</label>
                                                     <select class="form-select" name="vai_tro">
                                                         <option selected disabled>-Chọn vai trò-</option>
-                                                        <option value="1" <?= $nguoiDung['vai_tro'] == 1 ? 'selected':''?>>Admin</option>
-                                                        <option value="2" <?= $nguoiDung['vai_tro'] == 2 ? 'selected':''?>>Người dùng</option>
+                                                        <option value="1" <?= $nguoiDung['vai_tro'] == 1 ? 'selected' : '' ?>>Admin</option>
+                                                        <option value="2" <?= $nguoiDung['vai_tro'] == 2 ? 'selected' : '' ?>>Người dùng</option>
                                                     </select>
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['vai_tro']) ? $_SESSION['errors']['vai_tro'] : ''  ?>
@@ -146,8 +149,8 @@
                                                     <label for="VertimeassageInput" class="form-label">Trạng thái</label>
                                                     <select class="form-select" name="trang_thai">
                                                         <option selected disabled>-Chọn trạng thái-</option>
-                                                        <option value="1" <?= $nguoiDung['trang_thai'] == 1 ? 'selected':''?>>Hoạt động</option>
-                                                        <option value="2" <?= $nguoiDung['trang_thai'] == 2  ? 'selected':''?>>Ngưng hoạt động</option>
+                                                        <option value="1" <?= $nguoiDung['trang_thai'] == 1 ? 'selected' : '' ?>>Hoạt động</option>
+                                                        <option value="2" <?= $nguoiDung['trang_thai'] == 2  ? 'selected' : '' ?>>Ngưng hoạt động</option>
                                                     </select>
                                                     <span class="text-danger">
                                                         <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : ''  ?>

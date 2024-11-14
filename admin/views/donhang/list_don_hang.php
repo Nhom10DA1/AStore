@@ -79,15 +79,15 @@
                                                             <th scope="col">STT</th>
                                                             <!-- <th scope="col">Tài khoản</th> -->
                                                             <th scope="col">Mã đơn hàng</th>
-                                                            <th scope="col">Tên người nhận</th>
+                                                            <!-- <th scope="col">Tên người nhận</th> -->
                                                             <!-- <th scope="col">Email người nhận</th>
                                                             <th scope="col">Số điện thoại người nhận</th> -->
-                                                            <th scope="col">Địa chỉ người nhận</th>
+                                                            <!-- <th scope="col">Địa chỉ người nhận</th> -->
                                                             <th scope="col">Ngày đặt</th>
                                                             <!-- <th scope="col">Mã khuyến mãi</th> -->
-                                                            <th scope="col">Phương thức thanh toán</th>
+                                                            <!-- <th scope="col">Phương thức thanh toán</th> -->
                                                             <th scope="col">Trạng thái thanh toán</th>
-                                                            <th scope="col">Thanh toán</th>
+                                                            <!-- <th scope="col">Thanh toán</th> -->
                                                             <th scope="col">Trạng thái</th>
                                                             <!-- <th>Ghi chú</th> -->
                                                             <th>Hành động</th>
@@ -99,13 +99,13 @@
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
                                                                 <!-- <td class="fw-medium"><?= $donHang['ten'] ?></td> -->
                                                                 <td class="fw-medium"><?= $donHang['ma_don_hang'] ?></td>
-                                                                <td class="fw-medium"><?= $donHang['ten_nguoi_nhan'] ?></td>
+                                                                <!-- <td class="fw-medium"><?= $donHang['ten_nguoi_nhan'] ?></td> -->
                                                                 <!-- <td class="fw-medium"><?= $donHang['email_nguoi_nhan'] ?></td>
                                                                 <td class="fw-medium">0<?= $donHang['sdt_nguoi_nhan'] ?></td> -->
-                                                                <td class="fw-medium"><?= $donHang['dia_chi_nguoi_nhan'] ?></td>
+                                                                <!-- <td class="fw-medium"><?= $donHang['dia_chi_nguoi_nhan'] ?></td> -->
                                                                 <td class="fw-medium"><?= $donHang['ngay_dat'] ?></td>
                                                                 <!-- <td class="fw-medium"><?= $donHang['ma_khuyen_mai'] ?></td> -->
-                                                                <td class="fw-medium"><?= $donHang['ten_phuong_thuc'] ?></td>
+                                                                <!-- <td class="fw-medium"><?= $donHang['ten_phuong_thuc'] ?></td> -->
                                                                 <td>
                                                                     <?php
                                                                     if ($donHang['trang_thai_thanh_toan'] == 1) { ?>
@@ -117,7 +117,7 @@
                                                                     }
                                                                     ?>
                                                                 </td>
-                                                                <td class="fw-medium"><?= $donHang['thanh_toan'] ?><u>đ</u></td>
+                                                                <!-- <td class="fw-medium"><?= $donHang['thanh_toan'] ?><u>đ</u></td> -->
                                                                 <td class="fw-medium"><?= $donHang['ten_trang_thai'] ?></td>
                                                                 <!-- <td class="fw-medium"><?= $donHang['ghi_chu'] ?></td> -->
                                                                 <td>

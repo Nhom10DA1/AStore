@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 14, 2024 at 01:49 AM
+-- Generation Time: Nov 14, 2024 at 11:08 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -168,8 +168,8 @@ CREATE TABLE `nguoi_dungs` (
 
 INSERT INTO `nguoi_dungs` (`id`, `ten`, `email`, `mat_khau`, `so_dien_thoai`, `dia_chi`, `hinh_anh`, `ngay_sinh`, `gioi_tinh`, `trang_thai`, `vai_tro`) VALUES
 (1, 'Nguyễn Văn A', 'admin@fpt.edu.vn', '123456', 355011558, 'Hà Nội', './uploads/images/avatarUser.jpg', '2024-11-14', 1, 1, 1),
-(49, 'Phạm Phú Trung', 'admin@gmail.com', 'werqyty', 3245567, '321423', './uploads/images/67332c0d5b83f3_l.png', '2001-03-23', 1, 2, 2),
-(50, 'Nguyễn Văn ABC', 'admin@fpt.edu.vn', '12132343443', 123456789, 'Hà Nội', './uploads/images/67345c5d156e9sharktank2-1.png.webp', '2011-11-11', 2, 2, 1);
+(49, 'Phạm Phú Trung', 'admin@gmail.com', '$2y$10$CgtO7SrfPTXR6hMAGStD..fMhpmSLKMmjw/rpOb0Xcj3rTwTJS3bW', 3245567, '321423', './uploads/images/67332c0d5b83f3_l.png', '2001-03-23', 1, 1, 2),
+(50, 'Nguyễn Văn ABC', 'admin@fpt.edu.vn', '$2y$10$PGQTbOYZGJSSiGRAeyKDjOlgm.GKTtZs7y8C.3TpZHS8Hr4C3pqGK', 123456789, 'Hà Nội', './uploads/images/6735d70fdc0acNew-York-Yankees.png', '2011-11-11', 2, 2, 1);
 
 -- --------------------------------------------------------
 
