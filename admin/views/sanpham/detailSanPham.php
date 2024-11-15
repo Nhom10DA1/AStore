@@ -32,6 +32,8 @@
 
     #image-container img {
         display: inline-block;
+        
+
     }
 </style>
 
@@ -81,16 +83,16 @@
                                     <!-- <div class="col-12" style="border: 1px solid gray; padding:10px;">
                                         <img style="width: 90%; height: 500px" src="<?= BASE_URL . $SanPham['anh_san_pham'] ?>" class="product-image" alt="Product Image">
                                     </div><br> -->
-                                    <div class="col-12 product-image-thumbs">
+                                    <div class="col-12 product-image-thumbs" style="padding: 30px 50px; ">
                                         <!-- Large Image Display -->
-                                        <div class="product-image-large mb-2">
-                                            <img id="largeImage" width="500px" height="500px" src="<?= BASE_URL . $listAnhSanPham[0]['link_hinh_anh'] ?>" alt="Large Product Image">
+                                        <div class="product-image-large mb-2" >
+                                            <img style=" padding: 10px; border:1px solid orangered;" id="largeImage" width="400px" height="400px" src="<?= BASE_URL . $listAnhSanPham[0]['link_hinh_anh'] ?>" alt="Large Product Image">
                                         </div>
                                         <!-- Thumbnails -->
                                         <div class="d-flex flex-wrap" id="image-container">
                                             <?php foreach ($listAnhSanPham as $key => $anhSP): ?>
                                                 <div class="product-image-thumb <?= $key == 0 ? 'active' : '' ?>" style="flex: 0 0 auto;">
-                                                    <img width="70px" height="70px" src="<?= BASE_URL . $anhSP['link_hinh_anh'] ?>" alt="Product Image" onclick="changeImage('<?= BASE_URL . $anhSP['link_hinh_anh'] ?>')">
+                                                    <img style=" border:1px solid orangered;" width="70px" height="70px" src="<?= BASE_URL . $anhSP['link_hinh_anh'] ?>" alt="Product Image" onclick="changeImage('<?= BASE_URL . $anhSP['link_hinh_anh'] ?>')">
                                                 </div>
                                             <?php endforeach ?>
                                         </div>
@@ -103,17 +105,17 @@
 
 
                                 </div>
-                                <div class="col-12 col-sm-6">
+                                <div class="col-12 col-sm-6" style="padding: 30px 50px;">
                                     <h2 class="my-3" style="color: black;">Tên sản phẩm: <?= $SanPham['ten_san_pham'] ?></h2>
                                     <hr>
-                                    <h4 class="mt-3">Giá tiền: <small><?= $SanPham['gia_nhap'] ?><u>đ</u></small></h4>
-                                    <h4 class="mt-3">Giá khuyến mãi: <small><?= $SanPham['gia_khuyen_mai'] ?><u>đ</u></small></h4>
-                                    <h4 class="mt-3">Số lượng: <small><?= $SanPham['so_luong'] ?></small></h4>
-                                    <h4 class="mt-3">Lượt xem: <small><?= $SanPham['luot_xem'] ?></small></h4>
-                                    <h4 class="mt-3">Ngày nhập: <small><?= $SanPham['ngay_nhap'] ?></small></h4>
-                                    <h4 class="mt-3">Danh mục: <small><?= $SanPham['ten_danh_muc'] ?></small></h4>
-                                    <h4 class="mt-3">Trạng thái: <small><?= $SanPham['trang_thai'] == 1 ? 'Còn Hàng' : 'Hết Hàng' ?></small></h4>
-                                    <h4 class="mt-3">Mô tả: <small><?= $SanPham['mo_ta'] ?></small></h4>
+                                    <h5 class="mt-3">Giá tiền: <small><?= $SanPham['gia_nhap'] ?><u>đ</u></small></h5>
+                                    <h5 class="mt-3">Giá khuyến mãi: <small><?= $SanPham['gia_khuyen_mai'] ?><u>đ</u></small></h5>
+                                    <h5 class="mt-3">Số lượng: <small><?= $SanPham['so_luong'] ?></small></h5>
+                                    <h5 class="mt-3">Lượt xem: <small><?= $SanPham['luot_xem'] ?></small></h5>
+                                    <h5 class="mt-3">Ngày nhập: <small><?= $SanPham['ngay_nhap'] ?></small></h5>
+                                    <h5 class="mt-3">Danh mục: <small><?= $SanPham['ten_danh_muc'] ?></small></h5>
+                                    <h5 class="mt-3">Trạng thái: <small><?= $SanPham['trang_thai'] == 1 ? 'Còn Hàng' : 'Hết Hàng' ?></small></h5>
+                                    <h5 class="mt-3">Mô tả: <small><?= $SanPham['mo_ta'] ?></small></h5>
                                 </div>
                             </div>
                             <br>
@@ -123,19 +125,21 @@
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>STT</th>
+
                                                 <th>Người bình luận</th>
                                                 <th>Nội dung</th>
                                                 <th>Ngày bình luận</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>a</td>
-                                                <td>b</td>
-                                                <td>20/11/2023</td>
-                                            </tr>
+                                            <?php foreach ($listBinhLuan as $binhLuan) : ?>
+
+                                                <tr>
+                                                    <td><?= $binhLuan['ten'] ?></td>
+                                                    <td><?= $binhLuan['noi_dung'] ?></td>
+                                                    <td><?= $binhLuan['ngay_dang'] ?></td><br>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>

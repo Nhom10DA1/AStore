@@ -4,11 +4,13 @@ class SanPhamController
 
     public $modelSanPham;
     public $modelDanhMuc;
+    public $modelBinhLuan;
 
     public function __construct()
     {
         $this->modelSanPham = new SanPham();
         $this->modelDanhMuc = new DanhMuc();
+        $this->modelBinhLuan = new BinhLuan();
     }
 
     public function listSanPham()
@@ -357,6 +359,7 @@ class SanPhamController
 
         $SanPham = $this->modelSanPham->getDetailSanPham($id);
         $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        $listBinhLuan = $this->modelBinhLuan->getAllBinhLuan($id);
         if ($SanPham) {
             require_once './views/sanpham/detailSanPham.php';
         } else {
@@ -364,9 +367,5 @@ class SanPhamController
             exit();
         }
     }
-    public function listBinhLuan()
-    {
-        $listSanPham = $this->modelSanPham->getDetailBinhLuan();
-        require_once './views/sanpham/detailSanPham.php';
-    }
+
 }

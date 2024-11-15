@@ -36,6 +36,7 @@ require_once 'models/Banner.php';
 require_once 'models/DonHangs.php';
 require_once 'models/TrangThaiDonHang.php';
 require_once 'models/AdminTaiKhoan.php';
+require_once 'models/BinhLuan.php';
 
 
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
