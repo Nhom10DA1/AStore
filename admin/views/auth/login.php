@@ -64,10 +64,14 @@
                             <div class="card-body p-4">
                                 <div class="text-center mt-2">
                                     <h5 class="text-primary">Welcome Back !</h5>
-                                    <p class="text-muted">Sign in to continue to Admin.</p>
+                                    <?php if (isset($_SESSION['error'])) { ?>
+                                        <div class="text-danger"><?= $_SESSION['error'] ?></div>
+                                    <?php } else { ?>
+                                        <div class="login-box-msg">Vui lòng đăng nhập để tiếp tục!</div>
+                                    <?php } ?>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="<?= BASE_URL_ADMIN.'?act=check-login-admin'?>" method="POST">
+                                    <form action="<?= BASE_URL_ADMIN . '?act=check-login-admin' ?>" method="POST">
 
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Email</label>
@@ -92,11 +96,13 @@
                                         </div>
                                     </form>
                                 </div>
+
                             </div>
                             <!-- end card body -->
                         </div>
                         <!-- end card -->
                     </div>
+
                 </div>
                 <!-- end row -->
             </div>
