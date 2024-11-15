@@ -187,11 +187,6 @@
                                     Danh sách
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="?act=form-them-khuyen-mai" class="nav-link" data-key="t-sweet-alerts">
-                                    Thêm mới
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </li>

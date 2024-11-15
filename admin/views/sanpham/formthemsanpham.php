@@ -30,7 +30,7 @@
 
         require_once "views/layouts/siderbar.php";
         ?>
-        
+
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -42,7 +42,7 @@
 
             <div class="page-content">
                 <div class="container-fluid">
-                <div class="row">
+                    <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
                                 <h4 class="mb-sm-0"></h4>
@@ -62,255 +62,255 @@
                         <div class="col">
 
                             <div class="h-100">
-                            <div class="card">
-                                <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Danh sách thêm sản phẩm </h4>
-                                  
-                                </div><!-- end card header -->
+                                <div class="card">
+                                    <div class="card-header align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách thêm sản phẩm </h4>
 
-                                <div class="card-body">
-                                    <div class="live-preview">
-                                        <form action="?act=them-san-pham" method="POST" enctype="multipart/form-data">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="compnayNameinput" class="form-label">Mã sản phẩm</label>
-                                                        <input type="text" class="form-control" placeholder="" name="ma_san_pham">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['ma_san_pham']) ? $_SESSION['errors']['ma_san_pham'] : '' ?>
+                                    </div><!-- end card header -->
 
-                                                        </span>
+                                    <div class="card-body">
+                                        <div class="live-preview">
+                                            <form action="?act=them-san-pham" method="POST" enctype="multipart/form-data">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="compnayNameinput" class="form-label">Mã sản phẩm</label>
+                                                            <input type="text" class="form-control" placeholder="" name="ma_san_pham">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['ma_san_pham']) ? $_SESSION['errors']['ma_san_pham'] : '' ?>
+
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
-                                              
-                                                <!--end col-->
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Tên sản phẩm</label>
-                                                        <input type="text" class="form-control" placeholder="" name="ten_san_pham">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['ten_san_pham']) ? $_SESSION['errors']['ten_san_pham'] : '' ?>
+                                                    <!--end col-->
 
-                                                        </span>
+                                                    <!--end col-->
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Tên sản phẩm</label>
+                                                            <input type="text" class="form-control" placeholder="" name="ten_san_pham">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['ten_san_pham']) ? $_SESSION['errors']['ten_san_pham'] : '' ?>
+
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Hình ảnh sản phấm</label>
-                                                        <input type="file" class="form-control"  name="anh_san_pham" >
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['anh_san_pham']) ? $_SESSION['errors']['anh_san_pham'] : '' ?>
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Hình ảnh sản phấm</label>
+                                                            <input type="file" class="form-control" name="anh_san_pham">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['anh_san_pham']) ? $_SESSION['errors']['anh_san_pham'] : '' ?>
 
-                                                        </span>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
+                                                    <!--end col-->
 
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Abum ảnh sản phẩm</label>
-                                                        <input type="file" class="form-control"  name="img_array[]" multiple >
-                                                        
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Abum ảnh sản phẩm</label>
+                                                            <input type="file" class="form-control" name="img_array[]" multiple>
+
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
+                                                    <!--end col-->
 
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Giá nhập</label>
-                                                        <input type="number" class="form-control" placeholder="" name="gia_nhap">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['gia_nhap']) ? $_SESSION['errors']['gia_nhap'] : '' ?>
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Giá nhập</label>
+                                                            <input type="number" class="form-control" placeholder="" name="gia_nhap">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['gia_nhap']) ? $_SESSION['errors']['gia_nhap'] : '' ?>
 
-                                                        </span>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Giá bán</label>
-                                                        <input type="number" class="form-control"  name="gia_ban">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['gia_ban']) ? $_SESSION['errors']['gia_ban'] : '' ?>
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Giá bán</label>
+                                                            <input type="number" class="form-control" name="gia_ban">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['gia_ban']) ? $_SESSION['errors']['gia_ban'] : '' ?>
 
-                                                        </span>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
+                                                    <!--end col-->
 
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Giá khuyến mãi</label>
-                                                        <input type="number" class="form-control"  name="gia_khuyen_mai">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['gia_khuyen_mai']) ? $_SESSION['errors']['gia_khuyen_mai'] : '' ?>
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Giá khuyến mãi</label>
+                                                            <input type="number" class="form-control" name="gia_khuyen_mai">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['gia_khuyen_mai']) ? $_SESSION['errors']['gia_khuyen_mai'] : '' ?>
 
-                                                        </span>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
+                                                    <!--end col-->
 
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Ngày nhập</label>
-                                                        <input type="date" class="form-control"  name="ngay_nhap">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['ngay_nhap']) ? $_SESSION['errors']['ngay_nhap'] : '' ?>
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Ngày nhập</label>
+                                                            <input type="date" class="form-control" name="ngay_nhap">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['ngay_nhap']) ? $_SESSION['errors']['ngay_nhap'] : '' ?>
 
-                                                        </span>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
+                                                    <!--end col-->
 
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Số lượng</label>
-                                                        <input type="number" class="form-control"  name="so_luong">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['so_luong']) ? $_SESSION['errors']['so_luong'] : '' ?>
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Số lượng</label>
+                                                            <input type="number" class="form-control" name="so_luong">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['so_luong']) ? $_SESSION['errors']['so_luong'] : '' ?>
 
-                                                        </span>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
+                                                    <!--end col-->
 
-                                               
-                                          
-                                                <div class="form-group col-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Mô tả</label>
-                                                        <input type="text" class="form-control"  name="mo_ta">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['mo_ta']) ? $_SESSION['errors']['mo_ta'] : '' ?>
 
-                                                        </span>
-                                                        
+
+                                                    <div class="form-group col-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Mô tả</label>
+                                                            <input type="text" class="form-control" name="mo_ta">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['mo_ta']) ? $_SESSION['errors']['mo_ta'] : '' ?>
+
+                                                            </span>
+
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
+                                                    <!--end col-->
 
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Mô tả chi tiết</label>
-                                                        <input type="text" class="form-control"  name="mo_ta_chi_tiet">
-                                                       
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Mô tả chi tiết</label>
+                                                            <input type="text" class="form-control" name="mo_ta_chi_tiet">
+
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Lượt xem</label>
-                                                        <input type="number" class="form-control"  name="luot_xem">
-                                                       
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Lượt xem</label>
+                                                            <input type="number" class="form-control" name="luot_xem">
+
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
+                                                    <!--end col-->
 
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Danh Mục </label>
-                                                        <select class="form-select" name="danh_muc_id">
-                                                            <option selected disabled>Chọn danh muc sản phẩm </option>
-                                                            <?php foreach($listDanhMuc  as $danhmuc): ?>
-                                                                <option value="<?= $danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></option>
-                                                            <?php endforeach ?>
-                                                        </select>
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['danh_muc_id']) ? $_SESSION['errors']['danh_muc_id'] : '' ?>
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Danh Mục </label>
+                                                            <select class="form-select" name="danh_muc_id">
+                                                                <option selected disabled>Chọn danh muc sản phẩm </option>
+                                                                <?php foreach ($listDanhMuc  as $danhmuc): ?>
+                                                                    <option value="<?= $danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></option>
+                                                                <?php endforeach ?>
+                                                            </select>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['danh_muc_id']) ? $_SESSION['errors']['danh_muc_id'] : '' ?>
 
-                                                        </span>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
+                                                    <!--end col-->
 
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Trạng thái</label>
-                                                        <select class="form-select" name="trang_thai">
-                                                            <option selected disabled>Chọn trạng thái sản phẩm </option>
-                                                            <option value="1">Còn bán</option>
-                                                            <option value="2">Dừng bán</option>
-                                                        </select>
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Trạng thái</label>
+                                                            <select class="form-select" name="trang_thai">
+                                                                <option selected disabled>Chọn trạng thái sản phẩm </option>
+                                                                <option value="1">Còn bán</option>
+                                                                <option value="2">Dừng bán</option>
+                                                            </select>
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
 
-                                                        </span>
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--end col-->
-                                                
-                                               
-                                                <div class="col-lg-12">
+                                                    <!--end col-->
+
+
+                                                    <div class="col-lg-12">
                                                         <div class="text-center">
                                                             <button type="submit" class="btn btn-primary">Submit</button>
                                                         </div>
                                                     </div>
-                                                <!--end col-->
-                                            </div>
-                                            <!--end row-->
-                                        </form>
+                                                    <!--end col-->
+                                                </div>
+                                                <!--end row-->
+                                            </form>
+                                        </div>
+
                                     </div>
-                
+                                </div>
+                            </div> <!-- end col -->
+                        </div>
+
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> © Velzon.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by Themesbrand
                                 </div>
                             </div>
-                        </div> <!-- end col -->
-                    </div>
-
-                </div>
-                <!-- container-fluid -->
-            </div>
-            <!-- End Page-content -->
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © Velzon.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
-                            </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
+            <!-- end main content-->
+
         </div>
-        <!-- end main content-->
-
-    </div>
-    <!-- END layout-wrapper -->
+        <!-- END layout-wrapper -->
 
 
 
-    <!--start back-to-top-->
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <!--end back-to-top-->
+        <!--start back-to-top-->
+        <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+            <i class="ri-arrow-up-line"></i>
+        </button>
+        <!--end back-to-top-->
 
-    <!--preloader-->
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner-border text-primary avatar-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
+        <!--preloader-->
+        <div id="preloader">
+            <div id="status">
+                <div class="spinner-border text-primary avatar-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="customizer-setting d-none d-md-block">
-        <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        <div class="customizer-setting d-none d-md-block">
+            <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+                <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+            </div>
         </div>
-    </div>
 
-    <!-- JAVASCRIPT -->
-    <?php
-    require_once "views/layouts/libs_js.php";
-    ?>
+        <!-- JAVASCRIPT -->
+        <?php
+        require_once "views/layouts/libs_js.php";
+        ?>
 
 </body>
 

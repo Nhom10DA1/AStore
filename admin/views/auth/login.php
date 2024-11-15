@@ -67,7 +67,7 @@
                                     <p class="text-muted">Sign in to continue to Admin.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="?act=check-login-admin" method="POST">
+                                    <form action="<?= BASE_URL_ADMIN.'?act=check-login-admin'?>" method="POST">
 
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Email</label>

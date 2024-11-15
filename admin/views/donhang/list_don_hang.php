@@ -64,11 +64,11 @@
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
                                         <h4 class="card-title mb-0 flex-grow-1">Danh sách danh sách đơn hàng</h4>
-                                        <!-- <form class="position-relative">
+                                        <form class="position-relative">
                                             <input type="text" id="search-options" placeholder="Tìm kiếm đơn hàng..." autocomplete="off" class="">
                                             <span class="mdi mdi-magnify search-widget-icon"></span>
                                             <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
-                                        </form> -->
+                                        </form>
                                     </div><!-- end card header -->
                                     <div class="card-body">
                                         <div class="live-preview">
@@ -85,7 +85,7 @@
                                                             <!-- <th scope="col">Địa chỉ người nhận</th> -->
                                                             <th scope="col">Ngày đặt</th>
                                                             <!-- <th scope="col">Mã khuyến mãi</th> -->
-                                                            <!-- <th scope="col">Phương thức thanh toán</th> -->
+                                                            <th scope="col">Phương thức thanh toán</th>
                                                             <th scope="col">Trạng thái thanh toán</th>
                                                             <!-- <th scope="col">Thanh toán</th> -->
                                                             <th scope="col">Trạng thái</th>
@@ -101,6 +101,17 @@
                                                                 <td class="fw-medium"><?= $donHang['ma_don_hang'] ?></td>
 
                                                                 <td class="fw-medium"><?= $donHang['ngay_dat'] ?></td>
+                                                                <td class="fw-medium">
+                                                                    <?php
+                                                                    if ($donHang['phuong_thuc_thanh_toan'] == 1) { ?>
+                                                                        <span>COD(Thanh toán khi nhận hàng)</span>
+                                                                    <?php
+                                                                    } else { ?>
+                                                                        <span>VNPay</span>
+                                                                    <?php
+                                                                    }
+                                                                    ?>
+                                                                </td>
 
                                                                 <td class="fw-medium">
                                                                     <?php

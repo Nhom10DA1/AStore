@@ -30,8 +30,6 @@ class SanPhamController
     public function postAddSanPham()
     {
         //hàm này dùng để xử lý thêm dữ liệu
-
-
         // kiểm tra xem dữ liệu có phải đc subimt lên ko
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // lấy ra dữ liệu
@@ -236,7 +234,6 @@ class SanPhamController
             }
             // var_dump($gia_khuyen_mai);
             // die();
-
             $_SESSION['errors'] = $errors;
 
 
@@ -369,7 +366,7 @@ class SanPhamController
     }
     public function listBinhLuan()
     {
-        $binhLuan = $this->modelSanPham->getDetailBinhLuan();
+        $listSanPham = $this->modelSanPham->getDetailBinhLuan();
         require_once './views/sanpham/detailSanPham.php';
     }
 }

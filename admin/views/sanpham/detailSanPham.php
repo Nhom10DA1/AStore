@@ -18,6 +18,22 @@
     ?>
 
 </head>
+<style>
+    .product-image-thumb {
+        margin-right: 10px;
+    }
+
+    #image-container {
+        overflow: hidden;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    #image-container img {
+        display: inline-block;
+    }
+</style>
 
 <body>
 
@@ -62,20 +78,36 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 col-sm-6">
-                                    <div class="col-12">
-                                        <img style="width: 100%; height: 700px" src="<?= BASE_URL . $SanPham['anh_san_pham'] ?>" class="product-image" alt="Product Image">
-                                    </div>
+                                    <!-- <div class="col-12" style="border: 1px solid gray; padding:10px;">
+                                        <img style="width: 90%; height: 500px" src="<?= BASE_URL . $SanPham['anh_san_pham'] ?>" class="product-image" alt="Product Image">
+                                    </div><br> -->
                                     <div class="col-12 product-image-thumbs">
-                                        <?php foreach ($listAnhSanPham as $key => $anhSP): ?>
-                                            <div class="product-image-thumb <?= BASE_URL . $anhSP[$key] == 0 ? 'active' : '' ?>"><img src="<?= BASE_URL . $anhSP['link_hinh_anh'] ?>" alt="Product Image"></div>
-                                        <?php endforeach ?>
+                                        <!-- Large Image Display -->
+                                        <div class="product-image-large mb-2">
+                                            <img id="largeImage" width="500px" height="500px" src="<?= BASE_URL . $listAnhSanPham[0]['link_hinh_anh'] ?>" alt="Large Product Image">
+                                        </div>
+                                        <!-- Thumbnails -->
+                                        <div class="d-flex flex-wrap" id="image-container">
+                                            <?php foreach ($listAnhSanPham as $key => $anhSP): ?>
+                                                <div class="product-image-thumb <?= $key == 0 ? 'active' : '' ?>" style="flex: 0 0 auto;">
+                                                    <img width="70px" height="70px" src="<?= BASE_URL . $anhSP['link_hinh_anh'] ?>" alt="Product Image" onclick="changeImage('<?= BASE_URL . $anhSP['link_hinh_anh'] ?>')">
+                                                </div>
+                                            <?php endforeach ?>
+                                        </div>
+
+                                        <!-- View More Button -->
+                                        <?php if (count($listAnhSanPham) > 5): ?>
+                                            <button id="view-more-btn" class="btn btn-primary mt-2">View More</button>
+                                        <?php endif; ?>
                                     </div>
+
+
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <h3 class="my-3">Tên sản phẩm: <?= $SanPham['ten_san_pham'] ?></h3>
+                                    <h2 class="my-3" style="color: black;">Tên sản phẩm: <?= $SanPham['ten_san_pham'] ?></h2>
                                     <hr>
-                                    <h4 class="mt-3">Giá tiền: <small><?= $SanPham['gia_nhap'] ?></small></h4>
-                                    <h4 class="mt-3">Giá khuyến mãi: <small><?= $SanPham['gia_khuyen_mai'] ?></small></h4>
+                                    <h4 class="mt-3">Giá tiền: <small><?= $SanPham['gia_nhap'] ?><u>đ</u></small></h4>
+                                    <h4 class="mt-3">Giá khuyến mãi: <small><?= $SanPham['gia_khuyen_mai'] ?><u>đ</u></small></h4>
                                     <h4 class="mt-3">Số lượng: <small><?= $SanPham['so_luong'] ?></small></h4>
                                     <h4 class="mt-3">Lượt xem: <small><?= $SanPham['luot_xem'] ?></small></h4>
                                     <h4 class="mt-3">Ngày nhập: <small><?= $SanPham['ngay_nhap'] ?></small></h4>
@@ -85,9 +117,9 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="col-12">
+                            <<div class="col-12">
                                 <h2>Bình luận</h2>
-                                <div class="">
+                                <div class="comment-section">
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -95,68 +127,55 @@
                                                 <th>Người bình luận</th>
                                                 <th>Nội dung</th>
                                                 <th>Ngày bình luận</th>
-                                                <th>Trạng thái</th>
-                                                <th>Thao tác</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php    foreach ($listSanPham as $index => $sanPham) : ?>
-                                                <tr>
-                                                    <td class="fw-medium"><?= $key + 1 ?></td>
-                                                    <td><a target="_blank"
-                                                            href="<?= $sanPham['tai_khoan_id'] ?> "><?= $sanPham['ho_ten'] ?></a>
-                                                    </td>
-                                                    <td><?= $sanPham['noi_dung'] ?></td>
-                                                    <td><?= $sanPham['ngay_dang'] ?></td>
-                                                    <td><?= $sanPham['trang_thai'] == 1 ? 'Hiển thị' : 'Ẩn' ?></td>
-
-                                                    <td><?= (strlen($sanPham['mo_ta']) > 50) ? substr($sanPham['mo_ta'], 0, 50) . "..." : $sanPham['mo_ta']; ?> </td>
-                                                    <td><?= $sanPham['ten_danh_muc'] ?></td>
-                                                    <td>
-                                                       
-                                                    </td>
-                                                </tr>
-
-                                            <?php endforeach;  ?>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>a</td>
+                                                <td>b</td>
+                                                <td>20/11/2023</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
                         </div>
-                        <!-- /.card-body -->
+
                     </div>
-                    <!-- /.card -->
-
+                    <!-- /.card-body -->
                 </div>
-                <!-- END layout-wrapper -->
+                <!-- /.card -->
+
+            </div>
+            <!-- END layout-wrapper -->
 
 
 
-                <!--start back-to-top-->
-                <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-                    <i class="ri-arrow-up-line"></i>
-                </button>
-                <!--end back-to-top-->
+            <!--start back-to-top-->
+            <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+                <i class="ri-arrow-up-line"></i>
+            </button>
+            <!--end back-to-top-->
 
-                <!--preloader-->
-                <div id="preloader">
-                    <div id="status">
-                        <div class="spinner-border text-primary avatar-sm" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="customizer-setting d-none d-md-block">
-                    <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-                        <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+            <!--preloader-->
+            <div id="preloader">
+                <div id="status">
+                    <div class="spinner-border text-primary avatar-sm" role="status">
+                        <span class="visually-hidden">Loading...</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- JAVASCRIPT -->
-                <?php
-                require_once "views/layouts/libs_js.php";
-                ?>
+            <div class="customizer-setting d-none d-md-block">
+                <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+                    <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+                </div>
+            </div>
+
+            <!-- JAVASCRIPT -->
+            <?php
+            require_once "views/layouts/libs_js.php";
+            ?>
 
 </body>
 
@@ -226,12 +245,43 @@
 
 </html>
 <script>
-    $(document).ready(function() {
-        $('.product-image-thumb').on('click', function() {
-            var $image_element = $(this).find('img')
-            $('.product-image').prop('src', $image_element.attr('src'))
-            $('.product-image-thumb.active').removeClass('active')
-            $(this).addClass('active')
-        })
-    })
+    document.addEventListener('DOMContentLoaded', function() {
+        var viewMoreBtn = document.getElementById('view-more-btn');
+        var imageContainer = document.getElementById('image-container');
+        var images = imageContainer.querySelectorAll('.product-image-thumb');
+
+        function toggleImages() {
+            for (var i = 5; i < images.length; i++) {
+                if (images[i].style.display === 'none' || images[i].style.display === '') {
+                    images[i].style.display = 'inline-block';
+                } else {
+                    images[i].style.display = 'none';
+                }
+            }
+            viewMoreBtn.textContent = viewMoreBtn.textContent === 'View More' ? 'View Less' : 'View More';
+        }
+
+        if (viewMoreBtn) {
+            viewMoreBtn.addEventListener('click', toggleImages);
+
+            // Initially hide images beyond the fifth one
+            for (var i = 5; i < images.length; i++) {
+                images[i].style.display = 'none';
+            }
+        }
+
+        // Function to change the large image
+        window.changeImage = function(imageUrl) {
+            var largeImage = document.getElementById('largeImage');
+            largeImage.src = imageUrl;
+
+            // Remove active class from all thumbnails
+            images.forEach(function(image) {
+                image.classList.remove('active');
+            });
+
+            // Add active class to the clicked thumbnail
+            event.currentTarget.classList.add('active');
+        }
+    });
 </script>
