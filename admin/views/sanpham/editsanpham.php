@@ -30,7 +30,7 @@
 
         require_once "views/layouts/siderbar.php";
         ?>
-        
+
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -42,7 +42,7 @@
 
             <div class="page-content">
                 <div class="container-fluid">
-                <div class="row">
+                    <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
                                 <h4 class="mb-sm-0"></h4>
@@ -50,7 +50,7 @@
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Tai khoan quan tri</li>
+                                        <li class="breadcrumb-item active">Sửa thông tin sản phẩm</li>
                                     </ol>
                                 </div>
 
@@ -62,263 +62,255 @@
                         <div class="col">
 
                             <div class="h-100">
-                            <div class="card">
-                                <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Sửa thông tin sản phẩm <?= $SanPham['ten_san_pham'] ?></h4>
-                                  
-                                </div><!-- end card header -->
+                                <div class="card">
+                                    <div class="card-header align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">Sửa thông tin sản phẩm: <?= $SanPham['ten_san_pham'] ?></h4>
 
-                                <div class="card-body">
-                                    <div class="live-preview">
-                                        <form action="?act=sua-san-pham" method="POST" enctype="multipart/form-data">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                    <input type="hidden" name="san_pham_id" value="<?= $SanPham['id'] ?>">
-                                                        <label for="compnayNameinput" class="form-label"> Ma san pham </label>
-                                                        <input type="text" class="form-control" placeholder="" name="ma_san_pham" value="<?= $SanPham['ma_san_pham'] ?>">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['ma_san_pham']) ? $_SESSION['errors']['ma_san_pham'] : '' ?>
+                                    </div><!-- end card header -->
 
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                              
-                                                <!--end col-->
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Ten san pham </label>
-                                                        <input type="text" class="form-control" placeholder="" name="ten_san_pham" value="<?= $SanPham['ten_san_pham'] ?>">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['ten_san_pham']) ? $_SESSION['errors']['ten_san_pham'] : '' ?>
+                                    <div class="card-body">
+                                        <div class="live-preview">
+                                            <form action="?act=sua-san-pham" method="POST" enctype="multipart/form-data">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <input type="hidden" name="san_pham_id" value="<?= $SanPham['id'] ?>">
+                                                            <label for="compnayNameinput" class="form-label">Mã sản phẩm</label>
+                                                            <input type="text" class="form-control" placeholder="" name="ma_san_pham" value="<?= $SanPham['ma_san_pham'] ?>">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['ma_san_pham']) ? $_SESSION['errors']['ma_san_pham'] : '' ?>
 
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Anh san pham </label>
-                                                        <input type="file" class="form-control"  name="anh_san_pham">
-                                                       
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                            
-
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Gia nhap</label>
-                                                        <input type="number" class="form-control" placeholder="" name="gia_nhap" value="<?= $SanPham['gia_nhap'] ?>">
-                                                        
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Gia ban </label>
-                                                        <input type="number" class="form-control"  name="gia_ban" value="<?= $SanPham['gia_ban'] ?>">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['gia_ban']) ? $_SESSION['errors']['gia_ban'] : '' ?>
-
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Gia khuyen mai </label>
-                                                        <input type="number" class="form-control"  name="gia_khuyen_mai" value="<?= $SanPham['gia_khuyen_mai'] ?>">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['gia_khuyen_mai']) ? $_SESSION['errors']['gia_khuyen_mai'] : '' ?>
-
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Ngay nhap </label>
-                                                        <input type="date" class="form-control"  name="ngay_nhap" value="<?= $SanPham['ngay_nhap'] ?>">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['ngay_nhap']) ? $_SESSION['errors']['ngay_nhap'] : '' ?>
-
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">So luong </label>
-                                                        <input type="number" class="form-control"  name="so_luong" value="<?= $SanPham['so_luong'] ?>">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['so_luong']) ? $_SESSION['errors']['so_luong'] : '' ?>
-
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Trang thai </label>
-                                                        <select class="form-select" name="trang_thai">
-                                                            <option selected disabled>Chọn trạng thái sản phẩm </option>
-                                                            <option value="1">Còn bán</option>
-                                                            <option value="2">Dừng bán</option>
-                                                        </select>
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['trang_thai']) ? $_SESSION['errors']['trang_thai'] : '' ?>
-
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                
-                                               
-                                          
-                                                <div class="form-group col-12">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Mo ta </label>
-                                                        <input type="text" class="form-control"  name="mo_ta" value="<?= $SanPham['mo_ta'] ?>">
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['mo_ta']) ? $_SESSION['errors']['mo_ta'] : '' ?>
-
-                                                        </span>
-                                                        
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Mo ta chi tiet</label>
-                                                        <input type="text" class="form-control"  name="mo_ta_chi_tiet" value="<?= $SanPham['mo_ta_chi_tiet'] ?>">
-                                                       
-                                                    </div>
-                                                </div>
-
-                                                
-                                                <!--end col-->
-
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="emailidInput" class="form-label">Danh muc </label>
-                                                        <select class="form-select" name="danh_muc_id">
-                                                            <option selected disabled>Chọn danh muc sản phẩm </option>
-                                                            <?php foreach($listDanhMuc  as $danhmuc): ?>
-                                                                <option value="<?= $danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></option>
-                                                            <?php endforeach ?>
-                                                        </select>
-                                                        <span class="text-danger">
-                                                            <?= !empty($_SESSION['errors']['danh_muc_id']) ? $_SESSION['errors']['danh_muc_id'] : '' ?>
-
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                               
-
-<!--                                                 
-                                                <div class="col-lg-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h4 class="card-title mb-0">Album Ảnh</h4>
+                                                            </span>
                                                         </div>
+                                                    </div>
+                                                    <!--end col-->
 
-                                                        <div class="card-body">
-                                                        <form action="?act=sua-album-anh-san-pham" method="post" enctype="multipart/form-data">
-                                                            <div class="dropzone">
+                                                    <!--end col-->
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Tên sản phẩm</label>
+                                                            <input type="text" class="form-control" placeholder="" name="ten_san_pham" value="<?= $SanPham['ten_san_pham'] ?>">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['ten_san_pham']) ? $_SESSION['errors']['ten_san_pham'] : '' ?>
 
-                                                                    <thead>
-                                                                        <tr>
-                                                                       
-                                                                        <th>
-                                                                        <div class="text-center"><button onclick="addfaqs();" type="button" class="badge badge-success" style="color:black"><i class="fa fa-plus"></i> Add</button></div>
-                                                                        </th>
-                                                                        </tr>
-                                                                    </thead>
+                                                            </span>
+                                                        </div>
+                                                    </div>
 
-                                                                <div class="fallback">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Hình ảnh sản phẩm</label>
+                                                            <input type="file" class="form-control" name="anh_san_pham">
+                                                            <br> <img " src="<?= BASE_URL . $SanPham['anh_san_pham'] ?>" style=" width: 120px;
+                                                                                                                                                    margin-left: 40%; 
+                                                                                                                                                    height: 120px;" alt="">
+
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+
+
+
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Giá nhập</label>
+                                                            <input type="number" class="form-control" placeholder="" name="gia_nhap" value="<?= $SanPham['gia_nhap'] ?>">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Giá bán </label>
+                                                            <input type="number" class="form-control" name="gia_ban" value="<?= $SanPham['gia_ban'] ?>">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['gia_ban']) ? $_SESSION['errors']['gia_ban'] : '' ?>
+
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Giá khuyến mại</label>
+                                                            <input type="number" class="form-control" name="gia_khuyen_mai" value="<?= $SanPham['gia_khuyen_mai'] ?>">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['gia_khuyen_mai']) ? $_SESSION['errors']['gia_khuyen_mai'] : '' ?>
+
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Ngày nhập</label>
+                                                            <input type="date" class="form-control" name="ngay_nhap" value="<?= $SanPham['ngay_nhap'] ?>">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['ngay_nhap']) ? $_SESSION['errors']['ngay_nhap'] : '' ?>
+
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Số lượng</label>
+                                                            <input type="number" class="form-control" name="so_luong" value="<?= $SanPham['so_luong'] ?>">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['so_luong']) ? $_SESSION['errors']['so_luong'] : '' ?>
+
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Trạng thái</label>
+                                                            <select id="trang_thai" name="trang_thai" class="form-control custom-select">
+                                                                <option <?= $SanPham['trang_thai'] == 1 ? 'selected' : '' ?> value="1">Còn Hàng</option>
+                                                                <option <?= $SanPham['trang_thai'] == 2 ? 'selected' : '' ?> value="2">Hết Hàng</option>
+                                                            </select>
+                                                            <?php if (isset($_SESSION['errors']['trang_thai'])) { ?>
+                                                                <p class="text-danger"><?= $_SESSION['error']['trang_thai'] ?></p>
+                                                            <?php } ?>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+
+
+
+                                                    <div class="form-group col-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Mô tả</label>
+                                                            <input type="text" class="form-control" name="mo_ta" value="<?= $SanPham['mo_ta'] ?>">
+                                                            <span class="text-danger">
+                                                                <?= !empty($_SESSION['errors']['mo_ta']) ? $_SESSION['errors']['mo_ta'] : '' ?>
+
+                                                            </span>
+
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="emailidInput" class="form-label">Mô tả chi tiết</label>
+                                                            <input type="text" class="form-control" name="mo_ta_chi_tiet" value="<?= $SanPham['mo_ta_chi_tiet'] ?>">
+
+                                                        </div>
+                                                    </div>
+
+
+                                                    <!--end col-->
+
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="inputStatus">Danh mục sản phẩm</label>
+                                                            <select id="inputStatus" name="danh_muc_id" class="form-control custom-select">
+                                                                <?php foreach ($listDanhMuc as $danhMuc): ?>
+                                                                    <option <?= $danhMuc['id'] == $SanPham['danh_muc_id'] ? 'selected' : '' ?> value="<?= $danhMuc['id'] ?>">
+                                                                        <?= $danhMuc['ten_danh_muc'] ?>
+                                                                    </option>
+                                                                <?php endforeach; ?>
+                                                            </select>
+                                                            <?php if (isset($_SESSION['error']['danh_muc_id'])) { ?>
+                                                                <p class="text-danger"><?= $_SESSION['error']['danh_muc_id'] ?></p>
+                                                            <?php } ?>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                    <div class="col-lg-12">
+                                                        <div class="text-center">
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end row -->
+                                            </form>
+                                        </div>
+                                        <br>
+                                        <div class="col-md-2">
+                                            <!-- /.card -->
+                                            <div class="card card-info">
+                                                <div class="card-header">
+                                                    <h3 class="card-title text-center">Album ảnh sản phẩm</h3>
+
+                                                    <div class="card-tools">
+                                                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body p-0">
+                                                    <div class="table-responsive">
+                                                        <form action="<?= BASE_URL_ADMIN . '?act=sua-album-anh-san-pham' ?>" method="post"
+                                                            enctype="multipart/form-data">
+                                                            <table id="faqs" class="table table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Ảnh</th>
+
+                                                                    </tr>
+                                                                </thead>
                                                                 <tbody>
-                                                                    <input type="hidden" name="san_pham_id" value="<?= $SanPham['id'] ?>">
+                                                                    <input type="hidden" name="san_pham_id" value="<?= $sanPham['id'] ?>">
                                                                     <input type="hidden" id="img_delete" name="img_delete">
-                                                                  
-                                                                    <?php foreach($listAnhSanPham as $key=>$value): ?>
+                                                                    <?php foreach ($listAnhSanPham as $key => $value): ?>
                                                                         <tr id="faqs-row-<?= $key ?>">
                                                                             <input type="hidden" name="current_img_ids[]" value="<?= $value['id'] ?>">
-                                                                            <td><img src="<?= BASE_URL . $value['link_hinh_anh'] ?>" style="width: 50px; height: 50px;" alt=""></td>
-                                                                            <td><input type="file" name="img_array[]" class="form-control"></td>
-                                                                            <td class="mt-10"><button class="badge badge-danger" type="button" onclick="removeRow(<?= $key ?>, <?= $value['id'] ?> )"><i class="fa fa-trash"></i> Delete</button></td>
+                                                                            <td><img src="<?= BASE_URL . $value['link_hinh_anh'] ?>" style="width: 100px; height: 100px" alt="">
+                                                                            </td>
                                                                         </tr>
-                                                                        <?php endforeach ?>
-                                                                
-                                                                 </tbody>
-                                                                </div>
-                                                                
-                                                            </div>
-
-                                                            
-                                                            
-                                                        </div>
-                                                      
-                                                    </div>
-                                                   
-                                                </div> -->
-                                                 <!-- end col -->
-
-                                                 <div class="col-lg-12">
-                                                    <div class="text-center">
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                                    <?php endforeach; ?>
+                                                                </tbody>
+                                                            </table>
                                                     </div>
                                                 </div>
-                                            </div>
-                    <!-- end row -->
+
                                                 </form>
-                                                </div>
-                                                
-                                               
-                                                <!--end col-->
-                                               
-                                                <!--end col-->
                                             </div>
-                                            <!--end row-->
-                                        </form>
+                                            <!-- /.card -->
+                                        </div>
+
+                                        <!--end col-->
+
+                                        <!--end col-->
                                     </div>
-                
+                                    <!--end row-->
+                                    </form>
                                 </div>
-                            </div>
-                        </div> <!-- end col -->
-                    </div>
 
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
                 </div>
-                <!-- container-fluid -->
+
             </div>
-            <!-- End Page-content -->
+            <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
 
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © Velzon.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
-                            </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script> © Velzon.
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-sm-end d-none d-sm-block">
+                            Design & Develop by Themesbrand
                         </div>
                     </div>
                 </div>
-            </footer>
-        </div>
-        <!-- end main content-->
+            </div>
+        </footer>
+    </div>
+    <!-- end main content-->
 
     </div>
     <!-- END layout-wrapper -->
@@ -353,30 +345,5 @@
 
 </body>
 
-<!-- <script>
-  var faqs_row = <?= count($listAnhSanPham) ?>;
-
-  function addfaqs() {
-    html = '<tr id="faqs-row-' + faqs_row + '">';
-    html += '<td><img src="https://img.pikbest.com/wp/202345/cat-dog-pet-and-pets-in-real-pictures-wallpapers_9596134.jpg!w700wp" style="width: 50px; height: 50px;" alt=""></td>';
-    html += '<td><input type="file"  name="img_array[]" class="form-control"></td>';
-    html += '<td class="mt-10"><button type="button" class="badge badge-danger" onclick="removeRow(' + faqs_row + ', null);"><i class="fa fa-trash"></i> Delete</button></td>';
-
-    html += '</tr>';
-
-    $('#faqs tbody').append(html);
-
-    faqs_row++;
-  }
-
-  function removeRow(rowId, imgId){
-    $('#faqs-row-' + rowId).remove();
-    if (imgId !== null) {
-      var imgDeleteInput = document.getElementById('img_delete')
-      var currentValue = imgDeleteInput.value;
-      imgDeleteInput.value = currentValue ? currentValue + ',' + imgId : imgId;
-    }
-  }
-</script> -->
 
 </html>

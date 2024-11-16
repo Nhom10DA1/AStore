@@ -85,28 +85,35 @@
                                                             <!-- <th scope="col">Địa chỉ người nhận</th> -->
                                                             <th scope="col">Ngày đặt</th>
                                                             <!-- <th scope="col">Mã khuyến mãi</th> -->
-                                                            <!-- <th scope="col">Phương thức thanh toán</th> -->
+                                                            <th scope="col">Phương thức thanh toán</th>
                                                             <th scope="col">Trạng thái thanh toán</th>
                                                             <!-- <th scope="col">Thanh toán</th> -->
                                                             <th scope="col">Trạng thái</th>
                                                             <!-- <th>Ghi chú</th> -->
-                                                            <th>Hành động</th>
+                                                            <th scope="col">Hành động</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php foreach ($donHangs as $index => $donHang) : ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <!-- <td class="fw-medium"><?= $donHang['ten'] ?></td> -->
+
                                                                 <td class="fw-medium"><?= $donHang['ma_don_hang'] ?></td>
-                                                                <!-- <td class="fw-medium"><?= $donHang['ten_nguoi_nhan'] ?></td> -->
-                                                                <!-- <td class="fw-medium"><?= $donHang['email_nguoi_nhan'] ?></td>
-                                                                <td class="fw-medium">0<?= $donHang['sdt_nguoi_nhan'] ?></td> -->
-                                                                <!-- <td class="fw-medium"><?= $donHang['dia_chi_nguoi_nhan'] ?></td> -->
+
                                                                 <td class="fw-medium"><?= $donHang['ngay_dat'] ?></td>
-                                                                <!-- <td class="fw-medium"><?= $donHang['ma_khuyen_mai'] ?></td> -->
-                                                                <!-- <td class="fw-medium"><?= $donHang['ten_phuong_thuc'] ?></td> -->
-                                                                <td>
+                                                                <td class="fw-medium">
+                                                                    <?php
+                                                                    if ($donHang['phuong_thuc_thanh_toan'] == 1) { ?>
+                                                                        <span>COD(Thanh toán khi nhận hàng)</span>
+                                                                    <?php
+                                                                    } else { ?>
+                                                                        <span>VNPay</span>
+                                                                    <?php
+                                                                    }
+                                                                    ?>
+                                                                </td>
+
+                                                                <td class="fw-medium">
                                                                     <?php
                                                                     if ($donHang['trang_thai_thanh_toan'] == 1) { ?>
                                                                         <span class="badge bg-success">Đã thanh toán</span>
@@ -117,9 +124,9 @@
                                                                     }
                                                                     ?>
                                                                 </td>
-                                                                <!-- <td class="fw-medium"><?= $donHang['thanh_toan'] ?><u>đ</u></td> -->
+
                                                                 <td class="fw-medium"><?= $donHang['ten_trang_thai'] ?></td>
-                                                                <!-- <td class="fw-medium"><?= $donHang['ghi_chu'] ?></td> -->
+
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
 
@@ -133,7 +140,6 @@
                                                                                 </button>
                                                                             </form>
                                                                         <?php else: ?>
-                                                                            <!-- Nếu trạng thái đơn hàng không phải "hủy", chỉ hiển thị nút sửa -->
                                                                             <a href="?act=form-sua-don-hang&id=<?= $donHang['id'] ?>" class="link-warning">
                                                                                 <i class="ri-settings-4-line"></i>
                                                                             </a>

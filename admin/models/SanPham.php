@@ -149,7 +149,22 @@ class SanPham
             echo 'lỗi: ' . $e->getMessage();
         }
     }
-
+    public function updateAnhSanPham($id, $new_file)
+    {
+        try {
+            $sql = "UPDATE hinh_anh_san_phams SET link_hinh_anh = :new_file WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(
+                [
+                    ':new_file' => $new_file,
+                    ':id' => $id
+                ]
+            );
+            return true;
+        } catch (Exception $e) {
+            echo 'Lỗi' . $e->getMessage();
+        }
+    }
     public function insertAlbumAnhSanPham($san_pham_id, $link_hinh_anh)
     {
         try {
@@ -220,5 +235,16 @@ class SanPham
             echo "Lỗi" . $e->getMessage();
         }
     }
-    
+    public function getDetailBinhLuan()
+    {
+        try {
+            $sql = 'SELECT * FROM binh_luans';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return  $stmt->fetchAll();
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "lỗi " . $e->getMessage();
+        }
+    }
 }

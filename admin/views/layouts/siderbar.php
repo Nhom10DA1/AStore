@@ -187,8 +187,22 @@
                                     Danh sách
                                 </a>
                             </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarQLDonHang" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarQLDonHang">
+                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lý trạng thái đơn hàng</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarQLDonHang">
+                        <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="?act=form-them-khuyen-mai" class="nav-link" data-key="t-sweet-alerts">
+                                <a href="?act=trang-thai-don-hang" class="nav-link" data-key="t-sweet-alerts">
+                                    Danh sách
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?act=form-them-danh-muc" class="nav-link" data-key="t-nestable-list">
                                     Thêm mới
                                 </a>
                             </li>

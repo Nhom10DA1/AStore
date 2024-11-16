@@ -109,4 +109,34 @@ class NguoiDung
             echo 'An error occurred. Please try again later.';
         }
     }
+    public function checkLogin($email, $mat_khau)
+    {
+        try {
+            $sql = 'SELECT * FROM nguoi_dungs WHERE email = :email ';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['email' => $email]);
+            $user = $stmt->fetch();
+            // Kiểm tra nếu email hoặc mật khẩu bị trống
+            if (!empty($email) || !empty($mat_khau)) {
+                if ($mat_khau == $user['mat_khau']) {
+                    if ($user['chuc_vu_id'] == "Admin") {
+                        if ($user['trang_thai'] == "Hoạt động") {
+                            return $user['email'];
+                        } else {
+                            return 'Tài khoản bị cấm';
+                        }
+                    } else {
+                        return 'Tài khoản không có quyền đăng nhập';
+                    }
+                } else {
+                    return 'Đăng nhập sai thông tin mật khẩu hoặc tài khoản';
+                }
+            } else {
+                return 'Vui lòng nhập emai và mật khẩu';
+            }
+        } catch (Exception $e) {
+            echo 'Lỗi: ' . $e->getMessage();
+            return false;
+        }
+    }
 }
