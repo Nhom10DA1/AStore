@@ -66,7 +66,7 @@
                             <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
                             <span class="align-middle">Profile</span>
                         </a>
-                        <a class="dropdown-item" href="<?= BASE_URL_ADMIN . '?act=login-admin' ?>" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất?')">
+                        <a class="dropdown-item"  href="<?= BASE_URL_ADMIN .'?act=logout-admin'?>" onclick="return confirm('Đăng xuất tài khoản?')">
                             <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
                             <span class="align-middle" data-key="t-logout">Logout</span>
                         </a>

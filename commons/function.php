@@ -46,7 +46,7 @@ function deleteSessionError(){
         unset ($_SESSION['flash']);
         unset ($_SESSION['error']);
 
-        session_unset();
+        // session_unset();
         // session_destroy();
     }
 }
@@ -68,8 +68,7 @@ function formatDate($date) {
 
 function checkLoginAdmin() {
     if(!isset($_SESSION['user_admin'])) {
-        header("location: " . BASE_URL_ADMIN . '?act=login-admin');
-        require_once './views/auth/login.php';
+        header('location: ' . BASE_URL_ADMIN . '?act=login-admin');
         exit();
     }
 }

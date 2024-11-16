@@ -114,19 +114,24 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarNguoiDung" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
-                        <i class="las la-user-circle"></i><span data-key="t-advance-ui">Quản lý người dùng</span>
+                    <a class="nav-link menu-link" href="#sidebarAdmin" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAdmin">
+                        <i class="las la-user-circle"></i><span data-key="t-advance-ui">Quan li tai khoan</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarNguoiDung">
+                    <div class="collapse menu-dropdown" id="sidebarAdmin">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="?act=nguoi-dungs" class="nav-link" data-key="t-sweet-alerts">
-                                    Danh sách
+                        <li class="nav-item">
+                                <a href="?act=list_tai_khoan_quan_tri" class="nav-link" data-key="t-sweet-alerts">
+                                   Tai khoan quan tri
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="?act=form-them-nguoi-dung" class="nav-link" data-key="t-sweet-alerts">
-                                    Thêm mới
+                                <a href="<?= BASE_URL_ADMIN . '?act=list-tai-khoan-khach-hang' ?>" class="nav-link" data-key="t-sweet-alerts">
+                                    Tai khoan khach hang
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri' ?>" class="nav-link" data-key="t-sweet-alerts">
+                                    Tai khoan ca nhan
                                 </a>
                             </li>
                         </ul>

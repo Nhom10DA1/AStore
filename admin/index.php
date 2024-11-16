@@ -1,26 +1,22 @@
 <?php
 session_start();
 // Require file Common
-require_once '../commons/env.php'; // Khai báo biến môi trường
-require_once '../commons/function.php'; // Hàm hỗ trợ
-// Route
+require_once '../commons/env.php'; // Declare environment variables
+require_once '../commons/function.php'; // Helper functions
 $act = $_GET['act'] ?? '/';
-if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'logout-admin') {
-    checkLoginAdmin();
+if($act !== 'login-admin' && $act!=='check-login-admin'&&$act!=='logout-admin') {
+    checkLoginAdmin(); // chặn quyền truy cập khi đã logout ra
 }
-
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
 require_once 'controllers/TinTucController.php';
 require_once 'controllers/AdminLienHeController.php';
-require_once 'controllers/NguoiDungConntroller.php';
 require_once 'controllers/KhuyenMaiController.php';
 require_once 'controllers/BannerController.php';
 require_once 'controllers/SanPhamController.php';
 require_once 'controllers/DonHangController.php';
 require_once 'controllers/TrangThaiDonHangController.php';
-// require_once 'controllers/AdminController.php';
 require_once 'controllers/AdminTaiKhoanController.php';
 
 
@@ -30,7 +26,6 @@ require_once 'models/DanhMuc.php';
 require_once 'models/SanPham.php';
 require_once 'models/TinTuc.php';
 require_once 'models/AdminLienHe.php';
-require_once 'models/NguoiDung.php';
 require_once 'models/KhuyenMai.php';
 require_once 'models/Banner.php';
 require_once 'models/DonHangs.php';
@@ -64,13 +59,7 @@ match ($act) {
     'form-sua-lien-he'      => (new AdminLienHeController())->edit(),
     'update-lien-he'        => (new AdminLienHeController())->update(),
     'xoa-lien-he'           => (new AdminLienHeController())->delete(),
-    // Quản lý người dùng
-    'nguoi-dungs'           => (new NguoiDungController())->index(),
-    'form-them-nguoi-dung'  => (new NguoiDungController())->create(),
-    'them-nguoi-dung'       => (new NguoiDungController())->store(),
-    'form-sua'              => (new NguoiDungController())->edit(),
-    'thay-doi-thong-tin'    => (new NguoiDungController())->update(),
-    'xoa-nguoi-dung'        => (new NguoiDungController())->destroy(),
+   
     // Quản lý Khuyến mãi
     'khuyen-mai'              => (new KhuyenMaiController())->index(),
     'form-them-khuyen-mai'     => (new KhuyenMaiController())->create(),
@@ -120,14 +109,15 @@ match ($act) {
     'sua-quan-tri'          => (new AdminTaiKhoanController())->postEditQuanTri(),
 
 
-    'reset-password'        => (new AdminTaiKhoanController())->resetPassword(),
 
-    'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
-    'form-sua-khach-hang' => (new AdminTaiKhoanController())->formEditKhachHang(),
-    'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
-    'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->detailKhachHang(),
+    'reset-password'=> (new AdminTaiKhoanController())->resetPassword(),
 
-    'login-admin' => (new AdminTaiKhoanController())->formLogin(),
-    'check-login-admin' => (new AdminTaiKhoanController())->login(),
-    'logout-admin' => (new AdminTaiKhoanController())->logout(),
+    'list-tai-khoan-khach-hang'=> (new AdminTaiKhoanController())->danhSachKhachHang(),
+    'form-sua-khach-hang'=> (new AdminTaiKhoanController())->formEditKhachHang(),
+    'sua-khach-hang'=> (new AdminTaiKhoanController())->postEditKhachHang(),
+    'chi-tiet-khach-hang'=> (new AdminTaiKhoanController())->detailKhachHang(),
+
+    'login-admin'=> (new AdminTaiKhoanController())->formLogin(),
+    'check-login-admin'=> (new AdminTaiKhoanController())->login(),
+    'logout-admin'=> (new AdminTaiKhoanController())->logout(),
 };

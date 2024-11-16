@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 
     <!-- CSS -->
     <?php
@@ -35,22 +34,14 @@
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Quản lý tài khoản quản trị viên</h1>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
 
-  
-    <!-- Main content -->
-    <section class="content">
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+          <div class="page-content"> 
+
+         
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">

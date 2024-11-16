@@ -130,12 +130,6 @@ class AdminTaiKhoan{
             return false;
         }
     }
-    public function logout(){   
-        if(isset($_SESSION['user_admin'])){
-            unset($_SESSION['user_admin']);
-            header("Location:". BASE_URL_ADMIN . '?act=login-admin');
-        }
-    }
     
     public function getTaiKhoanFromEmail($email){
         try {
